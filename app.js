@@ -15,6 +15,7 @@ const createWindow = () => {
   })
   mainWindow.loadURL('file://' + __dirname + '/dist/index.html')
   mainWindow.webContents.openDevTools()
+  mainWindow.setMenu(null)
 
   mainWindow.on('closed', () => {
     mainWindow = null
