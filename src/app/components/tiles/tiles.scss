@@ -15,6 +15,7 @@
     border: 1px solid white;
 
     background-color: yellow;
+    background-size: cover;
 
     .tile-title {
       display: flex;
@@ -31,6 +32,11 @@
 
       span {
         align-self: center;
+        small {
+          font-size: 0.9rem;
+          display: block;
+          color: lightgrey;
+        }
       }
 
       &.center {
@@ -41,6 +47,12 @@
       }
     }
 
+    &.half {
+      width: 50%;
+    }
+    &.full {
+      width: 100%;
+    }
     &.tile-red {
       background-color: tomato;
     }

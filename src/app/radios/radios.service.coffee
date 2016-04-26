@@ -1,8 +1,10 @@
 angular.module 'jaMusic1'
-  .factory 'Radios', ($http, env) ->
+  .factory 'Radios', ($http, env, Common) ->
     getRadios = ->
       url = "#{env.url}#{env.version}/radios/?client_id=#{env.clientId}"
-      console.log url
+      $http.get(url)
+        .then(Common.getSuccess)
+        .catch(Common.getError)
 
     factory =
       getRadios: getRadios

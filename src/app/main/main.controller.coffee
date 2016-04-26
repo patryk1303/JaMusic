@@ -1,7 +1,15 @@
 angular.module 'jaMusic1'
-  .controller 'MainController', ($timeout, toastr) ->
+  .controller 'MainController', (Main) ->
     'ngInject'
-    vm = this
+    vm = @
+    vm.loading = true
 
-    vm.creationDate = 1461576913349
+    Main.getFeeds()
+      .then((res) ->
+        vm.feeds = res.results
+      )
+      .finally(->
+        vm.loading = false
+      )
+
     return

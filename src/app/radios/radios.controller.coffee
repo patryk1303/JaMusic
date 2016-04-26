@@ -1,6 +1,13 @@
 angular.module 'jaMusic1'
   .controller 'RadiosController', (Radios) ->
     'ngInject'
-    vm = this
+    vm = @
+    vm.loading = true
 
-    Radios.getRadios()
+    Radios.getRadios().then((res) ->
+      vm.radios = res.results
+    ).finally(->
+      vm.loading = false
+    )
+
+    return

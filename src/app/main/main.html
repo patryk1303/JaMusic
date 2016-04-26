@@ -1,4 +1,15 @@
-<div class="padded-more">
-  <h1>Main</h1>
-  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores obcaecati harum error, quam voluptates temporibus aperiam perferendis eius omnis distinctio.</div>
+<div class="tiles">
+  <div
+    class="tile half"
+    ng-repeat="feed in main.feeds"
+    style="background-image: url({{feed.images.size996_350}}); height: 350px;">
+    <h2 class="tile-title">
+      <span>
+        {{feed.title.en}}
+        <!--<small>
+          {{feed.type}}
+        </small>-->
+      </span>
+    </h2>
+  </div>
 </div>

@@ -1,1 +1,10 @@
-<h1>Radios</h1>
+<div class="tiles">
+  <div loader loading="radios.loading"></div>
+  <div class="tile" ng-repeat="radio in radios.radios">
+    <h2 class="tile-title">
+      <span>
+        {{radio.dispname}}
+      </span>
+    </h2>
+  </div>
+</div>
