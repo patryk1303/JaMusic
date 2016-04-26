@@ -1,4 +1,6 @@
 angular.module 'jaMusic1'
-  .controller 'PlaylistsController', () ->
+  .controller 'PlaylistsController', (Playlists) ->
     'ngInject'
     vm = @
+
+    Playlists.getPlaylists()
