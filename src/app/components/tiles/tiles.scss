@@ -1,0 +1,52 @@
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+
+  .tile {
+    display: flex;
+    width: 25%;
+    height: 15vw;
+
+    flex-grow: 1;
+
+    border: 1px solid white;
+
+    background-color: yellow;
+
+    .tile-title {
+      display: flex;
+      margin: 0;
+      height: 25%;
+      width: 100%;
+
+      align-self: flex-start;
+      justify-content: center;
+
+      text-align: center;
+      background-color: rgba(0,0,0, 0.5);
+      color: white;
+
+      span {
+        align-self: center;
+      }
+
+      &.center {
+        align-self: center;
+      }
+      &.bottom {
+        align-self: flex-end;
+      }
+    }
+
+    &.tile-red {
+      background-color: tomato;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
