@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .controller 'MainController', (Main) ->
+  .controller 'MainController', ($rootScope, Main, Tracks) ->
     'ngInject'
     vm = @
     vm.loading = true
@@ -10,6 +10,13 @@ angular.module 'jaMusic1'
       )
       .finally(->
         vm.loading = false
+      )
+
+    window.p = Tracks.getTrackFile()
+      .then((res) ->
+        $rootScope.p = res
+        window.p = res
+        console.log 'test it!'
       )
 
     return
