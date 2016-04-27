@@ -17,5 +17,10 @@ angular.module 'jaMusic1'
         templateUrl: 'app/radios/radios.html'
         controller: 'RadiosController'
         controllerAs: 'radios'
+      .state 'player',
+        url: '/player'
+        templateUrl: 'app/player/player.html'
+        controller: 'PlayerController'
+        controllerAs: 'player'
 
     $urlRouterProvider.otherwise '/'
