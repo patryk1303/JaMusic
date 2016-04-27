@@ -5,10 +5,13 @@
   align-items: stretch;
   align-content: stretch;
 
+  position: absolute;
+  height: 100%;
+
   .tile {
     display: flex;
     width: 25%;
-    height: 15vw;
+    min-height: 15vw;
 
     flex-grow: 1;
 
@@ -16,6 +19,7 @@
 
     background-color: yellow;
     background-size: cover;
+    background-position: center;
 
     .tile-title {
       display: flex;
@@ -32,6 +36,7 @@
 
       span {
         align-self: center;
+        white-space: initial;
         small {
           font-size: 0.9rem;
           display: block;
@@ -39,6 +44,9 @@
         }
       }
 
+      &.full {
+        height: 100%;
+      }
       &.center {
         align-self: center;
       }

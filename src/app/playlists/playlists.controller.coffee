@@ -1,8 +1,10 @@
 angular.module 'jaMusic1'
-  .controller 'PlaylistsController', (Playlists) ->
+  .controller 'PlaylistsController', (Playlists, Common) ->
     'ngInject'
     vm = @
     vm.loading = true
+
+    vm.colors = Common.getColors()
 
     Playlists.getPlaylists()
       .then((res) ->

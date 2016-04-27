@@ -1,7 +1,10 @@
 <div class="tiles">
   <div loader loading="radios.loading"></div>
-  <div class="tile" ng-repeat="radio in radios.radios">
-    <h2 class="tile-title">
+  <div
+    class="tile"
+    ng-repeat="(i,radio) in radios.radios"
+    style="background-color: {{radios.colors[(i + 10) % radios.colors.length]}}; background-image: url('{{radio.image}}')">
+    <h2 class="tile-title full">
       <span>
         {{radio.dispname}}
       </span>

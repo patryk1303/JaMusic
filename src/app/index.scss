@@ -3,6 +3,13 @@
 // bower:scss
 // endbower
 
+main {
+  position: relative;
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

@@ -1,7 +1,10 @@
 <div class="tiles">
   <div loader loading="playlists.loading"></div>
-  <div class="tile tile-red" ng-repeat="playlist in playlists.playlists">
-    <h2 class="tile-title">
+  <div
+    class="tile"
+    ng-repeat="(i,playlist) in playlists.playlists"
+    style="background-color: {{playlists.colors[i % playlists.colors.length]}};">
+    <h2 class="tile-title full">
       <span>
         {{playlist.name}}
         <small>
