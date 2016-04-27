@@ -1,5 +1,47 @@
-<div class="padded-more">
-  <div ng-if="$root.p">
-    <audio ng-src="{{$root.p}}" controls></audio>
+<div class="tiles" ng-if="player.trackInfo">
+  <div class="tile" style="background-image: url('{{player.trackInfo.album_image}}')"></div>
+  <div class="tile tile-red">
+    <h2 class="tile-title full">
+      <span>
+        <div>
+          <i class="fa fa-user"></i>&nbsp;<small>{{player.trackInfo.artist_name}}</small>
+        </div>
+        <div>
+          <i class="fa fa-music"></i>&nbsp;<small>{{player.trackInfo.album_name}}</small>
+        </div>
+        <div>
+          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{player.trackInfo.releasedate}}</small>
+        </div>
+        <div>
+          <i class="fa fa-play-circle"></i>&nbsp;<small>{{player.trackInfo.name}}</small>
+        </div>
+      </span>
+    </h2>
   </div>
+
+  <div class="tile full text-center" ng-if="$root.p">
+    <!--<audio ng-src="{{$root.p}}" class="full-width" style="align-self: center;" controls></audio>-->
+    <div class="audio-player">
+      <button ng-click="player.playPause($root.p)" class="btn btn-primary">
+        <i class="fa" ng-class="{'fa-play': $root.p.audio.paused, 'fa-pause': !$root.p.audio.paused}"></i>
+      </button>
+      <!--<button ng-click="$root.p.stop()" class="btn btn-primary">
+        <i class="fa fa-stop"></i>
+      </button>-->
+
+      </button>
+      <input type="range" min="0" max="1" step="0.001" ng-model="$root.p.progress">
+      <span>
+        {{$root.p.currentTime | trackTime}} / {{$root.p.audio.duration | trackTime}}
+      </span>
+    </div>
+  </div>
+
+  <a class="tile tile-blue full" ng-href="{{player.trackInfo.audiodownload}}">
+    <h2 class="tile-title full">
+      <span>
+        <i class="fa fa-download fa-5x"></i>
+      </span>
+    </h2>
+  </a>
 </div>

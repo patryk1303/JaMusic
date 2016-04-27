@@ -11,5 +11,13 @@ angular.module 'jaMusic1'
         )
         .catch(Common.getError)
 
+    getTrackInfo = (id = 1204669) ->
+      url = "#{env.url}#{env.version}/tracks/?client_id=#{env.clientId}&id=#{id}"
+
+      $http.get(url)
+        .then(Common.getSuccess)
+        .catch(Common.getError)
+
     factory =
       getTrackFile: getTrackFile
+      getTrackInfo: getTrackInfo

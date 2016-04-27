@@ -9,6 +9,10 @@
   height: 100%;
   width: 100%;
 
+  a.tile {
+    cursor: pointer;
+  }
+
   .tile {
     display: flex;
     width: 25%;
@@ -64,6 +68,9 @@
     }
     &.tile-red {
       background-color: tomato;
+    }
+    &.tile-blue {
+      background-color: #03A9F4;
     }
 
     @media (max-width: 768px) {
