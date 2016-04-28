@@ -49,9 +49,12 @@
 
         flex-wrap: wrap;
         justify-content: center;
-        div.details {
+        .details {
+          display: block;
           width: 50%;
           flex-grow: 1;
+          color: white;
+          text-decoration: none;
         }
         div:not(.details) {
           width: 100%;
