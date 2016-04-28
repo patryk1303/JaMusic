@@ -1,0 +1,22 @@
+<div style="width: 100%">
+  <div class="search">
+    <div class="form-group">
+      <input class="form-control" placeholder="Artist name" ng-model="artists.name">
+      <button class="btn btn-default" ng-click="artists.searchArtists()">Search artists</button>
+    </div>
+  </div>
+  <div class="tiles">
+    <a
+      class="tile tile-green"
+      ng-repeat="artist in artists.artists"
+      style="background-image: url('{{artist.image}}'); max-height: 120px">
+      <h2 class="tile-title full">
+        <span>
+          <div>
+            <i class="fa fa-user"></i>&nbsp;<small>{{artist.name}}</small>
+          </div>
+        </span>
+      </h2>
+    </a>
+  </div>
+</div>

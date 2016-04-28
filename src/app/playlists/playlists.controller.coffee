@@ -6,6 +6,16 @@ angular.module 'jaMusic1'
 
     vm.colors = Common.getColors()
 
+    vm.searchPlaylists = ->
+      vm.loading = true
+      Playlists.searchPlaylists(vm.name)
+        .then((res) ->
+          vm.playlists = res.results
+        )
+        .finally(->
+          vm.loading = false
+        )
+
     Playlists.getPlaylists()
       .then((res) ->
         vm.playlists = res.results

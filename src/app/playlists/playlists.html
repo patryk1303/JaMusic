@@ -1,17 +1,25 @@
-<div class="tiles">
-  <div loader loading="playlists.loading"></div>
-  <a
-    class="tile"
-    ng-repeat="(i,playlist) in playlists.playlists"
-    ui-sref="playlist({'id': playlist.id})"
-    style="background-color: {{playlists.colors[i % playlists.colors.length]}};">
-    <h2 class="tile-title full">
-      <span>
-        {{playlist.name}}
-        <small>
-          <i class="fa fa-user"></i>&nbsp;{{playlist.user_name}}
-        </small>
-      </span>
-    </h2>
-  </a>
+<div style="width: 100%">
+  <div class="search">
+    <div class="form-group">
+      <input class="form-control" placeholder="Playlist name" ng-model="playlists.name">
+      <button class="btn btn-default" ng-click="playlists.searchPlaylists()">Search playlists</button>
+    </div>
+  </div>
+  <div class="tiles">
+    <div loader loading="playlists.loading"></div>
+    <a
+      class="tile"
+      ng-repeat="(i,playlist) in playlists.playlists"
+      ui-sref="playlist({'id': playlist.id})"
+      style="background-color: {{playlists.colors[i % playlists.colors.length]}};">
+      <h2 class="tile-title full">
+        <span>
+          {{playlist.name}}
+          <small>
+            <i class="fa fa-user"></i>&nbsp;{{playlist.user_name}}
+          </small>
+        </span>
+      </h2>
+    </a>
+  </div>
 </div>

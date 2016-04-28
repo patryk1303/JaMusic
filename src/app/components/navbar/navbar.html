@@ -5,9 +5,17 @@
       <span class="fa fa-home"></span>
       Home
     </a>
+    <a ui-sref="artists" ui-sref-active="active" class="nav-group-item">
+      <span class="fa fa-user"></span>
+      Artists
+    </a>
     <a ui-sref="playlists" ui-sref-active="active" class="nav-group-item">
       <span class="fa fa-bars"></span>
       Playlists
+    </a>
+    <a ui-sref="tracks" ui-sref-active="active" class="nav-group-item">
+      <span class="fa fa-music"></span>
+      Tracks
     </a>
     <a ui-sref="radios" ui-sref-active="active" class="nav-group-item">
       <span class="fa fa-wifi"></span>
@@ -17,10 +25,6 @@
       <span class="fa fa-play"></span>
       Current
     </a>
-    <span class="nav-group-item">
-      <span class="fa fa-desktop"></span>
-      Applications
-    </span>
   </nav>
   <nav class="nav-group" ng-if="$root.p">
     <h5 class="nav-group-title">Now playing</h5>

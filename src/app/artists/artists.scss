@@ -1,0 +1,26 @@
+.search {
+  @extend .toolbar;
+
+  .form-group {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+    .form-control {
+      width: 80%;
+      height: 32px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      &:focus {
+        border-right: none;
+      }
+    }
+
+    button {
+      height: 32px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -2px;
+    }
+  }
+}
