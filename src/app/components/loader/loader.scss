@@ -11,7 +11,19 @@
   align-items: center;
   justify-content: center;
 
-  span {
-    align-self: center;
+  .spinner {
+    border-radius: 100%;
+    border-top: 3px solid blue;
+    border-bottom: 3px solid green;
+    border-left: 3px solid yellow;
+    border-right: 3px solid tomato;
+    width: 128px;
+    height: 128px;
+    animation: loader 500ms infinite linear;
   }
+}
+
+@keyframes loader {
+  0% { transform: rotateZ(0deg) }
+  100% { transform: rotateZ(360deg) }
 }

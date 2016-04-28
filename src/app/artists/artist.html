@@ -15,16 +15,16 @@
     style="background-color: {{artist.colors[i % artist.colors.length]}};">
     <h2 class="tile-title full">
       <span>
-        <div>
+        <div class="details">
           <i class="fa fa-square-o"></i>&nbsp;<small>{{track.album_name}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-calendar-o"></i>&nbsp;<small>{{track.releasedate}}</small>
         </div>
       </span>

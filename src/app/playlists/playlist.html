@@ -2,13 +2,13 @@
   <div class="tile full tile-blue">
     <h2 class="tile-title full">
       <span>
-        <div>
+        <div class="details">
           <i class="fa fa-music"></i>&nbsp;<small>{{playlist.tracks.name}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-user"></i>&nbsp;<small>{{playlist.tracks.user_name}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-calendar-o"></i>&nbsp;<small>{{playlist.tracks.creationdate}}</small>
         </div>
       </span>
@@ -21,10 +21,10 @@
     style="background-color: {{playlist.colors[i % playlist.colors.length]}};">
     <h2 class="tile-title full">
       <span>
-        <div>
+        <div class="details">
           <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
         </div>
-        <div>
+        <div class="details">
           <i class="fa fa-user"></i>&nbsp;<small>{{track.artist_name}}</small>
         </div>
         <!--<div>

@@ -13,7 +13,8 @@ const createWindow = () => {
     resizable: true,
     frame: true
   })
-  mainWindow.loadURL('file://' + __dirname + '/dist/index.html')
+  // mainWindow.loadURL('file://' + __dirname + '/dist/index.html')
+  mainWindow.loadURL('http://localhost:3000')
   mainWindow.webContents.openDevTools()
   mainWindow.setMenu(null)
 
