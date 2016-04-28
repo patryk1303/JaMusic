@@ -30,7 +30,13 @@
       </button>-->
 
       </button>
-      <input type="range" min="0" max="1" step="0.001" ng-model="$root.p.progress">
+      <!--<input type="range" min="0" max="1" step="0.001" ng-model="$root.p.progress">-->
+
+      <!-- TODO: move to directive -->
+      <div class="track-progress" ng-mousemove="player.changeProgress($event, $root.p)">
+        <div class="progress"></div>
+      </div>
+
       <span>
         {{$root.p.currentTime | trackTime}} / {{$root.p.audio.duration | trackTime}}
       </span>
