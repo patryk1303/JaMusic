@@ -1,5 +1,5 @@
 <div class="tiles" ng-if="player.trackInfo">
-  <div class="tile" style="background-image: url('{{player.trackInfo.album_image}}')"></div>
+  <div class="tile tile-green album" style="background-image: url('{{player.trackInfo.album_image}}')"></div>
   <div class="tile tile-red">
     <h2 class="tile-title full">
       <span>
@@ -20,27 +20,7 @@
   </div>
 
   <div class="tile full text-center" ng-if="$root.p">
-    <!--<audio ng-src="{{$root.p}}" class="full-width" style="align-self: center;" controls></audio>-->
-    <div class="audio-player">
-      <button ng-click="player.playPause($root.p)" class="btn btn-primary">
-        <i class="fa" ng-class="{'fa-play': $root.p.audio.paused, 'fa-pause': !$root.p.audio.paused}"></i>
-      </button>
-      <!--<button ng-click="$root.p.stop()" class="btn btn-primary">
-        <i class="fa fa-stop"></i>
-      </button>-->
-
-      </button>
-      <!--<input type="range" min="0" max="1" step="0.001" ng-model="$root.p.progress">-->
-
-      <!-- TODO: move to directive -->
-      <div class="track-progress" ng-mousemove="player.changeProgress($event, $root.p)">
-        <div class="progress"></div>
-      </div>
-
-      <span>
-        {{$root.p.currentTime | trackTime}} / {{$root.p.audio.duration | trackTime}}
-      </span>
-    </div>
+    <div player></div>
   </div>
 
   <a class="tile tile-blue full" ng-href="{{player.trackInfo.audiodownload}}">

@@ -1,7 +1,7 @@
 angular.module 'jaMusic1'
   .factory 'Tracks', ($http, env, Common) ->
 
-    getTrackFile = (id = 1204669) ->
+    getTrackFile = (id = 81747) ->
       url = "#{env.url}#{env.version}/tracks/file/?client_id=#{env.clientId}&audioformat=mp31&id=#{id}"
 
 
@@ -11,7 +11,7 @@ angular.module 'jaMusic1'
         )
         .catch(Common.getError)
 
-    getTrackInfo = (id = 1204669) ->
+    getTrackInfo = (id = 81747) ->
       url = "#{env.url}#{env.version}/tracks/?client_id=#{env.clientId}&id=#{id}"
 
       $http.get(url)

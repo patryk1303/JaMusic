@@ -22,6 +22,24 @@
       Applications
     </span>
   </nav>
+  <nav class="nav-group" ng-if="$root.p">
+    <h5 class="nav-group-title">Now playing</h5>
+    <div class="nav-group-item">
+      <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
+    </div>
+    <div class="nav-group-item">
+      <i class="fa fa-music"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
+    </div>
+    <div class="nav-group-item">
+      <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
+    </div>
+    <div class="nav-group-item">
+      <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
+    </div>
+    <span class="nav-group-item">
+      <player></player>
+    </span>
+  </nav>
 
   <!--<nav class="nav-group">
     <h5 class="nav-group-title">Radio</h5>

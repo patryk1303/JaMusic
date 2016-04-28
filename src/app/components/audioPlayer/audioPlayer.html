@@ -1,0 +1,17 @@
+<div class="audio-player">
+  <button ng-click="playPause($root.p)" class="btn btn-primary">
+    <i class="fa" ng-class="{'fa-play': $root.p.audio.paused, 'fa-pause': !$root.p.audio.paused}"></i>
+  </button>
+  <button ng-click="$root.p.stop()" class="btn btn-primary">
+    <i class="fa fa-stop"></i>
+  </button>
+
+  <div class="track-progress" ng-mousemove="changeProgress($event, $root.p)">
+    <div class="audio-progress"></div>
+  </div>
+
+  <span class="progress">
+    {{$root.p.currentTime | trackTime}} <br>
+    {{$root.p.audio.duration | trackTime}}
+  </span>
+</div>

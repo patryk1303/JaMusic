@@ -12,11 +12,4 @@ angular.module 'jaMusic1'
         vm.loading = false
       )
 
-    # Tracks.getTrackFile()
-    #   .then((res) ->
-    #     $rootScope.p = res
-    #     window.p = res
-    #     console.log 'test it!'
-    #   )
-
     return

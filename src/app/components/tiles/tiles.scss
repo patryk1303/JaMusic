@@ -59,7 +59,11 @@
         align-self: flex-end;
       }
     }
-
+    &.album {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
     &.half {
       width: 50%;
     }
@@ -71,6 +75,9 @@
     }
     &.tile-blue {
       background-color: #03A9F4;
+    }
+    &.tile-green {
+      background-color: #388E3C;
     }
 
     @media (max-width: 768px) {
