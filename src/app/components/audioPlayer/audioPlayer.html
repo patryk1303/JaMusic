@@ -2,7 +2,7 @@
   <button ng-click="playPause($root.p)" class="btn btn-primary">
     <i class="fa" ng-class="{'fa-play': $root.p.audio.paused, 'fa-pause': !$root.p.audio.paused}"></i>
   </button>
-  <button ng-click="$root.p.stop()" class="btn btn-primary">
+  <button ng-click="stop($root.p)" class="btn btn-primary">
     <i class="fa fa-stop"></i>
   </button>
 

@@ -15,6 +15,10 @@ angular.module 'jaMusic1'
           progress = e.offsetX / elWidth
           p.progress = progress
 
+      scope.stop = (_p) ->
+        _p.pause()
+        _p.currentTime = 0
+
       $rootScope.$watch('p.progress', () ->
         if $rootScope.p
           elProgress = el[0].querySelector '.audio-progress'
