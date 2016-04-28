@@ -10,7 +10,7 @@ angular.module 'jaMusic1'
           _p.pause()
 
       scope.changeProgress = (e, p) ->
-        elWidth = el.find('.track-progress').width()
+        elWidth = el[0].querySelector('.track-progress').getBoundingClientRect().width
         if e.buttons is 1
           progress = e.offsetX / elWidth
           p.progress = progress

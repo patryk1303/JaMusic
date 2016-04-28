@@ -29,7 +29,17 @@
   .progress {
     margin-left: 2px;
     margin-right: 2px;
+  }
 
+  &.small  {
+    button {
+      width: 30px;
+      height: 30px;
+    }
+
+    .track-progress {
+      height: 30px;
+    }
   }
 }
 
