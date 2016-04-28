@@ -6,7 +6,8 @@ angular.module 'jaMusic1'
 
       $http.head(url)
         .then((res) ->
-          return new Audio(url)
+          # return new Audio(url)
+          return url
         )
         .catch(Common.getError)
 
