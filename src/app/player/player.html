@@ -6,9 +6,9 @@
         <a class="details" ui-sref="artist({'id': $root.trackInfo.artist_id})">
           <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
         </a>
-        <div class="details">
+        <a class="details" ui-sref="album({'id': $root.trackInfo.album_id})">
           <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
-        </div>
+        </a>
         <div class="details">
           <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
         </div>
