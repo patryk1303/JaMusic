@@ -1,0 +1,24 @@
+<div style="width: 100%">
+  <div class="search">
+    <div class="form-group">
+      <input class="form-control" placeholder="Album name" ng-model="albums.name">
+      <button class="btn btn-default" ng-click="albums.searchArtists()">Search albums</button>
+    </div>
+  </div>
+  <div class="tiles">
+    <div loader loading="albums.loading"></div>
+    <a
+      class="tile tile-green"
+      ng-repeat="album in albums.albums"
+      ui-sref="album({'id': album.id})"
+      style="background-image: url('{{album.image}}');">
+      <h2 class="tile-title full">
+        <span>
+          <div>
+            <i class="fa fa-square-o"></i>&nbsp;<small>{{album.name}}</small>
+          </div>
+        </span>
+      </h2>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="tiles">
+  <div loader loading="album.artistLoading"></div>
+  <div
+    class="tile tile-blue"
+    style="background-image: url('{{album.info.image}}');">
+    <h2 class="tile-title full">
+      <span>
+        {{album.info.name}}
+      </span>
+    </h2>
+  </div>
+  <a
+    class="tile tile-red"
+    ng-repeat="(i,track) in album.tracks"
+    ui-sref="player({'trackId': track.id})"
+    style="background-color: {{album.colors[i % album.colors.length]}};">
+    <h2 class="tile-title full">
+      <span>
+        <div class="details">
+          <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
+        </div>
+        <div class="details">
+          <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
+        </div>
+      </span>
+    </h2>
+  </a>
+</div>
