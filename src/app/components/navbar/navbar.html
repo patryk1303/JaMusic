@@ -1,6 +1,6 @@
 <div>
   <nav class="nav-group">
-    <h5 class="nav-group-title">Favorites</h5>
+    <h5 class="nav-group-title">Main menu</h5>
     <a ui-sref="home" ui-sref-active="active" class="nav-group-item">
       <span class="fa fa-home"></span>
       Home
@@ -9,13 +9,17 @@
       <span class="fa fa-user"></span>
       Artists
     </a>
-    <a ui-sref="playlists" ui-sref-active="active" class="nav-group-item">
-      <span class="fa fa-bars"></span>
-      Playlists
+    <a ui-sref="albums" ui-sref-active="active" class="nav-group-item">
+      <span class="fa fa-square-o"></span>
+      Albums
     </a>
     <a ui-sref="tracks" ui-sref-active="active" class="nav-group-item">
       <span class="fa fa-music"></span>
       Tracks
+    </a>
+    <a ui-sref="playlists" ui-sref-active="active" class="nav-group-item">
+      <span class="fa fa-bars"></span>
+      Playlists
     </a>
     <a ui-sref="radios" ui-sref-active="active" class="nav-group-item">
       <span class="fa fa-wifi"></span>
@@ -32,7 +36,7 @@
       <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
     </div>
     <div class="nav-group-item">
-      <i class="fa fa-music"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
+      <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
     </div>
     <div class="nav-group-item">
       <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>

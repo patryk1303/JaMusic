@@ -7,5 +7,13 @@ angular.module 'jaMusic1'
       .then(Common.getSuccess)
       .catch(Common.getError)
 
+    getArtistTracks = (id) ->
+      url = "#{env.url}#{env.version}/artists/tracks/?client_id=#{env.clientId}&id=#{id}"
+      $http.get(url)
+      .then(Common.getSuccess)
+      .catch(Common.getError)
+
+
     factory =
       searchArtist: searchArtist
+      getArtistTracks: getArtistTracks

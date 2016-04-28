@@ -1,0 +1,33 @@
+<div class="tiles">
+  <div
+    class="tile tile-blue"
+    style="background-image: url('{{artist.info.image}}');">
+    <h2 class="tile-title full">
+      <span>
+        {{artist.info.name}}
+      </span>
+    </h2>
+  </div>
+  <a
+    class="tile tile-red"
+    ng-repeat="(i,track) in artist.tracks"
+    ui-sref="player({'trackId': track.id})"
+    style="background-color: {{artist.colors[i % artist.colors.length]}};">
+    <h2 class="tile-title full">
+      <span>
+        <div>
+          <i class="fa fa-square-o"></i>&nbsp;<small>{{track.album_name}}</small>
+        </div>
+        <div>
+          <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
+        </div>
+        <div>
+          <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
+        </div>
+        <div>
+          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{track.releasedate}}</small>
+        </div>
+      </span>
+    </h2>
+  </a>
+</div>

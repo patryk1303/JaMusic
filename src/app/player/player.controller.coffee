@@ -1,7 +1,7 @@
 angular.module 'jaMusic1'
   .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams) ->
     vm = @
-    vm.trackId = $stateParams.trackId || 1204669
+    vm.trackId = parseInt $stateParams.trackId || 1204669
 
     if $rootScope.trackId isnt vm.trackId
       if $rootScope.p

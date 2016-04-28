@@ -9,6 +9,7 @@
     <a
       class="tile tile-green"
       ng-repeat="artist in artists.artists"
+      ui-sref="artist({'id': artist.id})"
       style="background-image: url('{{artist.image}}'); max-height: 120px">
       <h2 class="tile-title full">
         <span>

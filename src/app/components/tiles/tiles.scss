@@ -42,8 +42,14 @@
       color: white;
 
       span {
+        display: flex;
         align-self: center;
         white-space: initial;
+
+        flex-wrap: wrap;
+        div {
+          width: 50%;
+        }
         small {
           font-size: 0.9rem;
           display: block;
