@@ -1,19 +1,22 @@
 angular.module 'jaMusic1'
-  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio) ->
+  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams) ->
     vm = @
+    vm.trackId = $stateParams.trackId || 1204669
 
-    Tracks.getTrackInfo()
-      .then((res) ->
-        vm.trackInfo = res.results[0]
-        $rootScope.trackInfo = res.results[0]
-      )
+    if $rootScope.trackId isnt vm.trackId
+      if $rootScope.p
+        $rootScope.p.stop()
+      $rootScope.trackId = vm.trackId
 
-    if !$rootScope.p
-      Tracks.getTrackFile()
+      Tracks.getTrackInfo(vm.trackId)
         .then((res) ->
-          # $rootScope.p = $sce.trustAsResourceUrl(res.getAttribute('src'))
+          vm.trackInfo = res.results[0]
+          $rootScope.trackInfo = res.results[0]
+        )
+      Tracks.getTrackFile(vm.trackId)
+        .then((res) ->
           $rootScope.p = ngAudio.load(res.getAttribute('src'))
-          # $rootScope.p.play()
+          $rootScope.p.play()
           window.p = res
         )
 

@@ -1,19 +1,19 @@
-<div class="tiles" ng-if="player.trackInfo">
-  <div class="tile tile-green album" style="background-image: url('{{player.trackInfo.album_image}}')"></div>
+<div class="tiles" ng-if="$root.trackInfo">
+  <div class="tile tile-green album" style="background-image: url('{{$root.trackInfo.album_image}}')"></div>
   <div class="tile tile-red">
     <h2 class="tile-title full">
       <span>
         <div>
-          <i class="fa fa-user"></i>&nbsp;<small>{{player.trackInfo.artist_name}}</small>
+          <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
         </div>
         <div>
-          <i class="fa fa-music"></i>&nbsp;<small>{{player.trackInfo.album_name}}</small>
+          <i class="fa fa-music"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
         </div>
         <div>
-          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{player.trackInfo.releasedate}}</small>
+          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
         </div>
         <div>
-          <i class="fa fa-play-circle"></i>&nbsp;<small>{{player.trackInfo.name}}</small>
+          <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
         </div>
       </span>
     </h2>
@@ -23,7 +23,7 @@
     <div player></div>
   </div>
 
-  <a class="tile tile-blue full" ng-href="{{player.trackInfo.audiodownload}}">
+  <a class="tile tile-blue full" ng-href="{{$root.trackInfo.audiodownload}}">
     <h2 class="tile-title full">
       <span>
         <i class="fa fa-download fa-5x"></i>

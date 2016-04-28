@@ -1,25 +1,24 @@
 angular.module 'jaMusic1'
   .directive 'player', ($rootScope) ->
     link = (scope, el, attr, controller) ->
-      console.log $rootScope
 
-      scope.playPause = (_p) ->
-        if _p.audio.paused
-          _p.play()
+      scope.playPause = () ->
+        if $rootScope.p.audio.paused
+          $rootScope.p.play()
         else
-          _p.pause()
+          $rootScope.p.pause()
 
-      scope.changeProgress = (e, p) ->
+      scope.changeProgress = (e) ->
         elWidth = el[0].querySelector('.track-progress').getBoundingClientRect().width
         if e.buttons is 1
           progress = e.offsetX / elWidth
-          p.progress = progress
+          $rootScope.p.progress = progress
 
-      scope.stop = (_p) ->
-        _p.pause()
-        _p.currentTime = 0
+      scope.stop = () ->
+        $rootScope.p.pause()
+        $rootScope.p.currentTime = 0
 
-      $rootScope.$watch('p.progress', () ->
+      $rootScope.$watch('p.progress', (a,b) ->
         if $rootScope.p
           elProgress = el[0].querySelector '.audio-progress'
           progress = $rootScope.p.progress * 100

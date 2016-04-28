@@ -1,8 +1,9 @@
 <div class="tiles">
   <div loader loading="playlists.loading"></div>
-  <div
+  <a
     class="tile"
     ng-repeat="(i,playlist) in playlists.playlists"
+    ui-sref="playlist({'id': playlist.id})"
     style="background-color: {{playlists.colors[i % playlists.colors.length]}};">
     <h2 class="tile-title full">
       <span>
@@ -12,5 +13,5 @@
         </small>
       </span>
     </h2>
-  </div>
+  </a>
 </div>
