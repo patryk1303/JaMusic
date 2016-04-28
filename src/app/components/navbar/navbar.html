@@ -32,12 +32,12 @@
   </nav>
   <nav class="nav-group" ng-if="$root.p">
     <h5 class="nav-group-title">Now playing</h5>
-    <div class="nav-group-item">
+    <a class="nav-group-item" ui-sref="artist({'id': $root.trackInfo.artist_id})">
       <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
-    </div>
-    <div class="nav-group-item">
+    </a>
+    <a class="nav-group-item" ui-sref="album({'id': $root.trackInfo.album_id})">
       <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
-    </div>
+    </a>
     <div class="nav-group-item">
       <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
     </div>
