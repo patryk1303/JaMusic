@@ -8,8 +8,9 @@ angular.module 'jaMusic1'
 
     Artists.getArtistTracks(vm.id)
       .then((res) ->
-        vm.info = res.results[0]
-        vm.tracks = vm.info.tracks
+        if res.results.length
+          vm.info = res.results[0]
+          vm.tracks = vm.info.tracks
       )
       .finally(->
         vm.artistLoading = false

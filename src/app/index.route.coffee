@@ -37,5 +37,10 @@ angular.module 'jaMusic1'
         templateUrl: 'app/artists/artist.html'
         controller: 'ArtistController'
         controllerAs: 'artist'
+      .state 'tracks',
+        url: '/tracks/:id'
+        templateUrl: 'app/tracks/tracks.html'
+        controller: 'TracksController'
+        controllerAs: 'tracks'
 
     $urlRouterProvider.otherwise '/'

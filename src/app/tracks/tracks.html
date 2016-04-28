@@ -1,0 +1,27 @@
+<div style="width: 100%">
+  <div class="search">
+    <div class="form-group">
+      <input class="form-control" placeholder="Track name" ng-model="tracks.name">
+      <button class="btn btn-default" ng-click="tracks.search()">Search tracks</button>
+    </div>
+  </div>
+  <div class="tiles">
+    <div loader loading="tracks.loading"></div>
+    <a
+      class="tile"
+      ng-repeat="(i,track) in tracks.tracks"
+      ui-sref="player({'trackId': track.id})"
+      style="background-color: {{tracks.colors[i % tracks.colors.length]}}; background-image: url('{{track.album_image}}')">
+      <h2 class="tile-title full">
+        <span>
+          <div>
+            {{track.name}}
+          </div>
+          <small>
+            <i class="fa fa-user"></i>&nbsp;{{track.artist_name}}
+          </small>
+        </span>
+      </h2>
+    </a>
+  </div>
+</div>
