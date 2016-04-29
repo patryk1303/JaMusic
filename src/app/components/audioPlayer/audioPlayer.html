@@ -21,4 +21,9 @@
     <span>{{$root.p.currentTime | trackTime}}</span> <br>
     <span>{{$root.p.audio.duration | trackTime}}</span>
   </span>
+
+  <div class="volume" ng-mousemove="changeVolume($event)">
+    <div class="volume-bar"></div>
+    <i class="fa fa-volume-up fa-5x"></i>
+  </div>
 </div>
