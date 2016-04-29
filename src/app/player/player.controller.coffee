@@ -25,4 +25,12 @@ angular.module 'jaMusic1'
           vm.trackLoading = false
         )
 
+    Tracks.getTrackReviews(vm.trackId)
+      .then((res) ->
+        vm.reviews = res.results
+      )
+      .finally(->
+        vm.trackLoading = false
+      )
+
     return
