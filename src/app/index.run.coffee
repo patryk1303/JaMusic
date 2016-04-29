@@ -1,9 +1,12 @@
 angular.module 'jaMusic1'
-  .run ($log, $rootScope, Tracks, ngAudio) ->
+  .run ($log, $rootScope, Tracks, ngAudio, $localStorage) ->
     'ngInject'
     $log.debug 'runBlock end'
 
-    $rootScope.playlist = []
+    $rootScope.$storage = $localStorage.$default
+      playlist: []
+
+    $rootScope.playlist = $localStorage.playlist
 
     $rootScope.addToPlaylist = (track) ->
       $rootScope.playlist.push track
@@ -17,6 +20,7 @@ angular.module 'jaMusic1'
         )
       Tracks.getTrackFile(track.id)
         .then((res) ->
+          $rootScope.trackId = track.id
           $rootScope.p = ngAudio.load(res)
           $rootScope.p.play()
         )

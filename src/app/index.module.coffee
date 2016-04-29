@@ -7,5 +7,6 @@ angular.module 'jaMusic1', [
   'ngAria',
   'ui.router',
   'toastr',
-  'ngAudio'
+  'ngAudio',
+  'ngStorage'
   ]

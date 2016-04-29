@@ -7,12 +7,14 @@
   </div>
   <div class="tiles">
     <div loader loading="tracks.loading"></div>
-    <a
-      class="tile"
+    <div
+      class="tile relative"
       ng-repeat="(i,track) in tracks.tracks"
-      ui-sref="player({'trackId': track.id})"
       style="background-color: {{tracks.colors[i % tracks.colors.length]}}; background-image: url('{{track.album_image}}')">
-      <h2 class="tile-title full">
+      <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
+        <i class="fa fa-plus"></i>
+      </button>
+      <a class="tile-title full" ui-sref="player({'trackId': track.id})">
         <span>
           <div>
             {{track.name}}
@@ -21,7 +23,7 @@
             <i class="fa fa-user"></i>&nbsp;{{track.artist_name}}
           </small>
         </span>
-      </h2>
-    </a>
+      </a>
+    </div>
   </div>
 </div>
