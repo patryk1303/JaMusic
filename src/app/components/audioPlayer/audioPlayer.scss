@@ -32,13 +32,27 @@
   }
 
   &.small  {
+    flex-wrap: wrap;
+
+    justify-content: center;
     button {
-      width: 30px;
+      flex-basis: 20%;
+      flex-grow: 1;
       height: 30px;
     }
 
     .track-progress {
+      margin-top: 3px;
       height: 30px;
+    }
+
+    .progress {
+      span:first-child::after {
+        content: " / "
+      }
+      br {
+        display: none;
+      }
     }
   }
 }
