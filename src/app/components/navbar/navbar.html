@@ -56,7 +56,12 @@
       ng-class="{'active': $root.trackInfo.id == track.id}"
       ng-click="$root.changeTrack(track)"
     >
+      <button class="btn btn-link" ng-click="$root.removeFromPlaylist($event, $index)">X</button>
       {{track.name}}
+    </span>
+    <hr>
+    <span class="nav-group-item" ng-click="$root.savePlaylist()">
+      Save playlist
     </span>
   </nav>
 

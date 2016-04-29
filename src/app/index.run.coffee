@@ -11,6 +11,18 @@ angular.module 'jaMusic1'
     $rootScope.addToPlaylist = (track) ->
       $rootScope.playlist.push track
 
+    $rootScope.removeFromPlaylist = (e, index) ->
+      e.stopPropagation()
+      $rootScope.playlist.splice(index,1)
+
+    $rootScope.savePlaylist = ->
+      playlist = angular.toJson($rootScope.playlist)
+      data = "text/json;charset=utf-8,#{playlist}"
+      a = document.createElement 'a'
+      a.href = "data:#{data}"
+      a.download = "playlist.json"
+      a.click()
+
     $rootScope.changeTrack = (track) ->
       if $rootScope.p
         $rootScope.p.stop()

@@ -4,8 +4,6 @@ angular.module 'jaMusic1'
     vm.loading = true
     vm.id = $stateParams.id
 
-    console.log vm
-
     vm.colors = Common.getColors()
 
     Playlists.getPlaylist(vm.id)

@@ -4,7 +4,7 @@ angular.module 'jaMusic1'
     vm.trackId = parseInt $stateParams.trackId || 1204669
     vm.trackLoading = false
 
-    if $rootScope.trackId isnt vm.trackId
+    if parseInt($rootScope.trackId) isnt vm.trackId
       if $rootScope.p
         $rootScope.p.stop()
       $rootScope.trackId = vm.trackId
