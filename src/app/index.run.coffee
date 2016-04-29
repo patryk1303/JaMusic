@@ -14,16 +14,25 @@ angular.module 'jaMusic1'
     $rootScope.changedTrack = false
 
     $rootScope.loadPlaylist = (list) ->
-      $rootScope.playlist = list
-      $localStorage.playlist = list
+      tracks = angular.copy list
+      $rootScope.playlist = tracks
+      $localStorage.playlist = tracks
       $rootScope.changeTrack 0
+
+    $rootScope.appendList = (list) ->
+      tracks = angular.copy list
+      for track in tracks
+        $rootScope.playlist.push track
+      return
 
     $rootScope.addToPlaylist = (track) ->
       $rootScope.playlist.push track
+      return
 
     $rootScope.removeFromPlaylist = (e, index) ->
       e.stopPropagation()
       $rootScope.playlist.splice(index,1)
+      return
 
     $rootScope.savePlaylist = ->
       playlist = angular.toJson($rootScope.playlist)

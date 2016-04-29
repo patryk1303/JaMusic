@@ -9,12 +9,15 @@
         <div class="details" ng-click="$root.loadPlaylist(album.tracks)">
           <i class="fa fa-list"></i> <small>Load album</small>
         </div>
+        <div class="details" ng-click="$root.appendList(album.tracks)">
+          <i class="fa fa-plus"></i> <small>Append to playlist</small>
+        </div>
       </span>
     </h2>
   </div>
   <div
     class="tile tile-red relative"
-    ng-repeat="(i,track) in album.tracks"
+    ng-repeat="(i,track) in album.tracks track by i"
     style="background-color: {{album.colors[i % album.colors.length]}};">
     <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
       <i class="fa fa-plus"></i>

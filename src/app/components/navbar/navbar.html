@@ -67,7 +67,7 @@
     <h5 class="nav-group-title">Playlist</h5>
     <span
       class="nav-group-item"
-      ng-repeat="track in $root.playlist"
+      ng-repeat="track in $root.playlist track by $index"
       ng-class="{'active': $root.trackIndex === $index}"
       ng-click="$root.changeTrack($index)"
     >
