@@ -1,7 +1,8 @@
 angular.module 'jaMusic1'
   .controller 'ArtistController', (Common, Artists, $stateParams) ->
     vm = @
-    vm.artistLoading = true
+    vm.tracksLoading = true
+    vm.albumsLoading = true
     vm.id = $stateParams.id
 
     vm.colors = Common.getColors()
@@ -13,7 +14,16 @@ angular.module 'jaMusic1'
           vm.tracks = vm.info.tracks
       )
       .finally(->
-        vm.artistLoading = false
+        vm.tracksLoading = false
+      )
+
+    Artists.getArtistAlbums(vm.id)
+      .then((res) ->
+        if res.results.length
+          vm.albums = res.results[0].albums
+      )
+      .finally(->
+        vm.albumsLoading = false
       )
 
     return

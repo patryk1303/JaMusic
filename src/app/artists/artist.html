@@ -1,7 +1,7 @@
 <div class="tiles">
-  <div loader loading="artist.artistLoading"></div>
+  <div loader loading="artist.tracksLoading && artist.albumsLoading"></div>
   <div
-    class="tile tile-blue"
+    class="tile tile-blue full"
     style="background-image: url('{{artist.info.image}}');">
     <h2 class="tile-title full">
       <span>
@@ -9,8 +9,31 @@
       </span>
     </h2>
   </div>
+  <div class="tile tile-red full" ng-if="artist.albums.length">
+    <h2 class="tile-title full"><span>Albums</span></h2>
+  </div>
+  <div
+    class="tile tile-red relative album"
+    ng-if="artist.albums.length"
+    ng-repeat="(i,album) in artist.albums"
+    style="background-color: {{artist.colors[i % artist.colors.length]}}; background-image: url('{{album.image}}')">
+    <a class="tile-title full" ui-sref="album({'id': album.id})">
+      <span>
+        <div class="details">
+          <i class="fa fa-square-o"></i>&nbsp;<small>{{album.name}}</small>
+        </div>
+        <div class="details">
+          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{album.releasedate}}</small>
+        </div>
+      </span>
+    </a>
+  </div>
+  <div class="tile tile-green full" ng-if="artist.tracks.length">
+    <h2 class="tile-title full"><span>Tracks</span></h2>
+  </div>
   <div
     class="tile tile-red relative"
+    ng-if="artist.tracks.length"
     ng-repeat="(i,track) in artist.tracks"
     style="background-color: {{artist.colors[i % artist.colors.length]}};">
     <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
