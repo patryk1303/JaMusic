@@ -5,8 +5,10 @@ angular.module 'jaMusic1'
 
     $rootScope.$storage = $localStorage.$default
       playlist: []
+      trackIndex: -1
 
     $rootScope.playlist = $localStorage.playlist
+    $rootScope.trackIndex = $localStorage.trackIndex
 
     $rootScope.addToPlaylist = (track) ->
       $rootScope.playlist.push track
@@ -23,7 +25,10 @@ angular.module 'jaMusic1'
       a.download = "playlist.json"
       a.click()
 
-    $rootScope.changeTrack = (track) ->
+    $rootScope.changeTrack = (index) ->
+      track = $rootScope.playlist[index]
+      $rootScope.trackIndex = index
+      $localStorage.trackIndex = index
       if $rootScope.p
         $rootScope.p.stop()
       Tracks.getTrackInfo(track.id)
@@ -36,3 +41,17 @@ angular.module 'jaMusic1'
           $rootScope.p = ngAudio.load(res)
           $rootScope.p.play()
         )
+
+    $rootScope.nextTrack = ->
+      index = $rootScope.trackIndex + 1
+      if index >= $rootScope.playlist.length
+        index = 0
+      $rootScope.changeTrack index
+
+    $rootScope.previousTrack = ->
+      index = $rootScope.trackIndex - 1
+      if index < 0
+        index = $rootScope.playlist.length - 1
+      $rootScope.changeTrack index
+
+    return

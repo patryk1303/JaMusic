@@ -6,6 +6,13 @@
     <i class="fa fa-stop"></i>
   </button>
 
+  <button class="btn btn-primary" ng-if="$root.playlist.length" ng-click="$root.previousTrack()">
+    <i class="fa fa-backward"></i>
+  </button>
+  <button class="btn btn-primary" ng-if="$root.playlist.length" ng-click="$root.nextTrack()">
+    <i class="fa fa-forward"></i>
+  </button>
+
   <div class="track-progress" ng-mousemove="changeProgress($event)">
     <div class="audio-progress"></div>
   </div>

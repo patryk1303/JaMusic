@@ -53,14 +53,14 @@
     <span
       class="nav-group-item"
       ng-repeat="track in $root.playlist"
-      ng-class="{'active': $root.trackId == track.id}"
-      ng-click="$root.changeTrack(track)"
+      ng-class="{'active': $root.trackIndex === $index}"
+      ng-click="$root.changeTrack($index)"
     >
       <button class="btn btn-link" ng-click="$root.removeFromPlaylist($event, $index)">X</button>
       {{track.name}}
     </span>
     <hr>
-    <span class="nav-group-item" ng-click="$root.savePlaylist()">
+    <span class="nav-group-item btn btn-default" ng-click="$root.savePlaylist()">
       Save playlist
     </span>
   </nav>
