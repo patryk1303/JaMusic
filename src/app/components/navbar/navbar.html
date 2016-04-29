@@ -53,7 +53,7 @@
     <span
       class="nav-group-item"
       ng-repeat="track in $root.playlist"
-      ng-class="{'active': $root.trackInfo.id == track.id}"
+      ng-class="{'active': $root.trackId == track.id}"
       ng-click="$root.changeTrack(track)"
     >
       <button class="btn btn-link" ng-click="$root.removeFromPlaylist($event, $index)">X</button>
