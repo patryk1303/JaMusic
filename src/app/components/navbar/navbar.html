@@ -30,6 +30,21 @@
       Current
     </a>
   </nav>
+  <nav class="nav-group" ng-if="$roo.favs.length">
+    <h5 class="nav-group-title">Favorites</h5>
+    <span
+      ng-repeat="fav in $root.favs"
+      ng-click="$root.loadFav(fav)"
+    >
+      <span ng-switch="fav.type">
+        <i class="fa fa-user" ng-switch-when="artist"></i>
+        <i class="fa fa-square-o" ng-switch-when="album"></i>
+        <i class="fa fa-music" ng-switch-when="track"></i>
+        <i class="fa fa-list" ng-switch-when="playlist"></i>
+      </span>
+      {{fav.name}}
+    </span>
+  </nav>
   <nav class="nav-group" ng-if="$root.p">
     <h5 class="nav-group-title">Now playing</h5>
     <a class="nav-group-item" ui-sref="artist({'id': $root.trackInfo.artist_id})">

@@ -25,10 +25,6 @@ angular.module 'jaMusic1'
 
           if elProgress
             elProgress.style.width = "#{progress}%"
-
-        if $rootScope.p.progress is 1 and $rootScope.p.duration > 0 and $rootScope.playlist.length
-          $rootScope.p.stop()
-          $rootScope.nextTrack()
       )
 
       return

@@ -6,10 +6,6 @@ angular.module 'jaMusic1'
 
     vm.colors = Common.getColors()
 
-    vm.loadPlaylist = ->
-      $rootScope.playlist = vm.tracks
-      $rootScope.changeTrack 0
-
     Albums.getAlbumTracks(vm.id)
       .then((res) ->
         if res.results.length

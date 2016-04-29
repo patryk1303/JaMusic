@@ -11,7 +11,7 @@
         <div class="details">
           <i class="fa fa-calendar-o"></i>&nbsp;<small>{{playlist.tracks.creationdate}}</small>
         </div>
-        <div class="details" ng-click="playlist.loadPlaylist()">
+        <div class="details" ng-click="$root.loadPlaylist(playlist.tracks.tracks)">
           <i class="fa fa-list"></i> <small>Load playlist</small>
         </div>
       </span>

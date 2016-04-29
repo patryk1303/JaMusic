@@ -6,7 +6,7 @@
     <h2 class="tile-title full">
       <span>
         {{album.info.name}}
-        <div class="details" ng-click="album.loadPlaylist()">
+        <div class="details" ng-click="$root.loadPlaylist(album.tracks)">
           <i class="fa fa-list"></i> <small>Load album</small>
         </div>
       </span>
