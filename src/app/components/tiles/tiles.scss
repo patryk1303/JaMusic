@@ -39,6 +39,7 @@
       justify-content: center;
 
       text-align: center;
+      text-decoration: none;
       background-color: rgba(0,0,0, 0.5);
       color: white;
 
@@ -66,6 +67,9 @@
         }
       }
 
+      &.relative {
+        position: relative;
+      }
       &.full {
         height: 100%;
         flex-grow: 1;
@@ -76,6 +80,9 @@
       &.bottom {
         align-self: flex-end;
       }
+    }
+    &.relative {
+      position: relative;
     }
     &.album {
       background-size: contain;

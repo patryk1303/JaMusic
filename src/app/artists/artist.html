@@ -9,12 +9,14 @@
       </span>
     </h2>
   </div>
-  <a
-    class="tile tile-red"
+  <div
+    class="tile tile-red relative"
     ng-repeat="(i,track) in artist.tracks"
-    ui-sref="player({'trackId': track.id})"
     style="background-color: {{artist.colors[i % artist.colors.length]}};">
-    <h2 class="tile-title full">
+    <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
+      <i class="fa fa-plus"></i>
+    </button>
+    <a class="tile-title full" ui-sref="player({'trackId': track.id})">
       <span>
         <div class="details">
           <i class="fa fa-square-o"></i>&nbsp;<small>{{track.album_name}}</small>
@@ -29,6 +31,6 @@
           <i class="fa fa-calendar-o"></i>&nbsp;<small>{{track.releasedate}}</small>
         </div>
       </span>
-    </h2>
-  </a>
+    </a>
+  </div>
 </div>

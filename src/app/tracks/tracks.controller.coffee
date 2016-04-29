@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .controller 'TracksController', (Common, Tracks) ->
+  .controller 'TracksController', (Common, Tracks, $rootScope) ->
     vm = @
     vm.loading = true
 

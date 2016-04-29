@@ -48,6 +48,17 @@
       <player class="small"></player>
     </span>
   </nav>
+  <nav class="nav-group" ng-if="$root.playlist.length">
+    <h5 class="nav-group-title">Playlist</h5>
+    <span
+      class="nav-group-item"
+      ng-repeat="track in $root.playlist"
+      ng-class="{'active': $root.trackInfo.id == track.id}"
+      ng-click="$root.changeTrack(track)"
+    >
+      {{track.name}}
+    </span>
+  </nav>
 
   <!--<nav class="nav-group">
     <h5 class="nav-group-title">Radio</h5>
