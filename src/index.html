@@ -37,11 +37,19 @@
       </div>
       <footer class="toolbar toolbar-footer" ng-if="$root.p">
         <div class="toolbar-actions">
-          <div class="text-center">
-            <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
-            <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
-            <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
-            <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
+          <div class="flex-center text-center">
+            <span ui-sref="artist({'id': $root.trackInfo.artist_id})">
+              <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
+            </span>
+            <span ui-sref="album({'id': $root.trackInfo.album_id})">
+              <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
+            </span>
+            <span>
+              <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
+            </span>
+            <span>
+              <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
+            </span>
           </div>
           <player class="toolbar"></player>
         </div>
