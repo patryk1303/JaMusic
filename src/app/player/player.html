@@ -1,21 +1,19 @@
 <div class="tiles">
   <div ng-show="$root.trackInfo" class="tile tile-green album" style="background-image: url('{{$root.trackInfo.album_image}}')"></div>
   <div ng-show="$root.trackInfo" class="tile tile-red">
-    <h2 class="tile-title full">
-      <span>
-        <a class="details" ui-sref="artist({'id': $root.trackInfo.artist_id})">
-          <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
-        </a>
-        <a class="details" ui-sref="album({'id': $root.trackInfo.album_id})">
-          <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
-        </a>
-        <div class="details">
-          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
-        </div>
-      </span>
+    <h2 class="tile-title row-wrap">
+      <a class="details" ui-sref="artist({'id': $root.trackInfo.artist_id})">
+        <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
+      </a>
+      <a class="details" ui-sref="album({'id': $root.trackInfo.album_id})">
+        <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
+      </a>
+      <div class="details">
+        <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
+      </div>
     </h2>
   </div>
 
@@ -25,7 +23,7 @@
   </div>-->
 
   <a ng-show="$root.trackInfo" class="tile tile-blue full" ng-href="{{$root.trackInfo.audiodownload}}">
-    <h2 class="tile-title full">
+    <h2 class="tile-title">
       <span>
         <i class="fa fa-download fa-5x"></i>
       </span>
@@ -33,7 +31,7 @@
   </a>
   
   <a ng-hide="$root.trackInfo" class="tile tile-red full">
-    <h2 class="tile-title full">
+    <h2 class="tile-title">
       <span>
         There's no track to play
       </span>

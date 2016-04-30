@@ -6,8 +6,8 @@
 main {
   position: relative;
   display: flex;
-  height: 100%;
   align-items: stretch;
+  width: 100%;
 }
 
 .full-width {
@@ -23,6 +23,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
 }
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject

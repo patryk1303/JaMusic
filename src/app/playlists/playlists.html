@@ -1,4 +1,4 @@
-<div style="width: 100%">
+<div class="flex flex-column" style="width: 100%">
   <div class="search">
     <form class="form-group" ng-submit="playlists.searchPlaylists()">
       <input class="form-control" placeholder="Playlist name" ng-model="playlists.name">
@@ -12,15 +12,13 @@
       ng-repeat="(i,playlist) in playlists.playlists"
       ui-sref="playlist({'id': playlist.id})"
       style="background-color: {{playlists.colors[i % playlists.colors.length]}};">
-      <h2 class="tile-title full">
-        <span>
-          <div>
-            {{playlist.name}}
-          </div>
-          <small>
-            <i class="fa fa-user"></i>&nbsp;{{playlist.user_name}}
-          </small>
-        </span>
+      <h2 class="tile-title row-wrap">
+        <div class="details">
+          {{playlist.name}}
+        </div>
+        <small class="details">
+          <i class="fa fa-user"></i>&nbsp;{{playlist.user_name}}
+        </small>
       </h2>
     </a>
   </div>

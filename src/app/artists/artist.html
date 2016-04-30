@@ -3,57 +3,51 @@
   <div
     class="tile tile-blue full"
     style="background-image: url('{{artist.info.image}}');">
-    <h2 class="tile-title full">
-      <span>
-        {{artist.info.name}}
-      </span>
+    <h2 class="tile-title">
+      {{artist.info.name}}
     </h2>
   </div>
   <div class="tile tile-red full" ng-if="artist.albums.length">
-    <h2 class="tile-title full"><span>Albums</span></h2>
+    <h2 class="tile-title">Albums</h2>
   </div>
   <div
-    class="tile tile-red relative album"
+    class="tile tile-red album"
     ng-if="artist.albums.length"
     ng-repeat="(i,album) in artist.albums"
     style="background-color: {{artist.colors[i % artist.colors.length]}}; background-image: url('{{album.image}}')">
-    <a class="tile-title full" ui-sref="album({'id': album.id})">
-      <span>
-        <div class="details">
-          <i class="fa fa-square-o"></i>&nbsp;<small>{{album.name}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{album.releasedate}}</small>
-        </div>
-      </span>
+    <a class="tile-title row-wrap" ui-sref="album({'id': album.id})">
+      <div class="details">
+        <i class="fa fa-square-o"></i>&nbsp;<small>{{album.name}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-calendar-o"></i>&nbsp;<small>{{album.releasedate}}</small>
+      </div>
     </a>
   </div>
   <div class="tile tile-green full" ng-if="artist.tracks.length">
-    <h2 class="tile-title full"><span>Tracks</span></h2>
+    <h2 class="tile-title">Tracks</h2>
   </div>
   <div
-    class="tile tile-red relative"
+    class="tile tile-red"
     ng-if="artist.tracks.length"
     ng-repeat="(i,track) in artist.tracks"
     style="background-color: {{artist.colors[i % artist.colors.length]}};">
     <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
       <i class="fa fa-plus"></i>
     </button>
-    <a class="tile-title full" ui-sref="player({'trackId': track.id})">
-      <span>
-        <div class="details">
-          <i class="fa fa-square-o"></i>&nbsp;<small>{{track.album_name}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-calendar-o"></i>&nbsp;<small>{{track.releasedate}}</small>
-        </div>
-      </span>
+    <a class="tile-title row-wrap" ui-sref="player({'trackId': track.id})">
+      <div class="details">
+        <i class="fa fa-square-o"></i>&nbsp;<small>{{track.album_name}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-calendar-o"></i>&nbsp;<small>{{track.releasedate}}</small>
+      </div>
     </a>
   </div>
 </div>

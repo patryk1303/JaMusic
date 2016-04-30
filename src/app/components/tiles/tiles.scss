@@ -1,99 +1,81 @@
 .tiles {
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: stretch;
-
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-
-  a.tile {
-    cursor: pointer;
+  
+  &,* {
+    box-sizing: border-box;
   }
-
+  
   .tile {
     display: flex;
-    width: 25%;
-    min-height: 15vw;
-
+    position: relative;
+    flex: 1 1 25%;
+    justify-content: center;
+    min-height: 65px;
+    border: 3px solid white;
+    
     text-decoration: none;
-
-    flex-grow: 1;
-    flex-direction: column;
-
-    border: 1px solid white;
-
-    background-color: yellow;
+    
+    background-color: #ccc;
     background-size: cover;
     background-position: center;
-
-    .tile-title {
+    
+    .caption, .tile-title {
+      color: white;
       display: flex;
-      margin: 0;
-      height: 25%;
-      width: 100%;
-
-      align-self: flex-start;
-      justify-content: center;
-
+      position: relative;
+      background-color: rgba(0,0,0,0.5);
       text-align: center;
       text-decoration: none;
-      background-color: rgba(0,0,0, 0.5);
-      color: white;
-
-      span {
+      font-size: 1.2em;
+      padding: 3px;
+      margin: 0;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      
+      .details {
         display: flex;
-        align-self: center;
-        white-space: initial;
-
-        flex-wrap: wrap;
+        flex: 1 1 50%;
+        flex-direction: column;
+        color: white;
+        text-decoration: none;
+        
+        align-items: center;
         justify-content: center;
-        .details {
-          display: block;
-          width: 50%;
-          flex-grow: 1;
-          color: white;
-          text-decoration: none;
-        }
-        div:not(.details) {
-          width: 100%;
-        }
-        small {
-          font-size: 0.9rem;
-          display: block;
-          color: lightgrey;
-        }
       }
-
-      &.relative {
-        position: relative;
+      div:not(.details) {
+        width: 100%;
       }
-      &.full {
-        height: 100%;
-        flex-grow: 1;
+      
+      small {
+        color: lightgrey;
+        font-size: 0.7em;
       }
-      &.center {
-        align-self: center;
-      }
-      &.bottom {
-        align-self: flex-end;
+      
+      &.row-wrap {
+        flex-direction: row;
+        flex-wrap: wrap;
       }
     }
-    &.relative {
-      position: relative;
-    }
+    
     &.album {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
     }
-    &.half {
-      width: 50%;
-    }
+    
     &.full {
-      width: 100%;
+      flex-basis: 100%;
+    }
+    &.half {
+      flex-basis: 50%;
+    }
+    
+    &.tile-yellow {
+      background-color: yellow;
     }
     &.tile-red {
       background-color: tomato;
@@ -104,9 +86,11 @@
     &.tile-green {
       background-color: #388E3C;
     }
-
+    
     @media (max-width: 768px) {
-      width: 100%;
+      & {
+        flex-basis: 100%;
+      }
     }
   }
 }

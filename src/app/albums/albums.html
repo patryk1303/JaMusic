@@ -1,4 +1,4 @@
-<div style="width: 100%">
+<div class="flex flex-column" style="width: 100%">
   <div class="search">
     <form class="form-group" ng-submit="albums.searchAlbums()">
       <input class="form-control" placeholder="Album name" ng-model="albums.name">
@@ -12,12 +12,11 @@
       ng-repeat="album in albums.albums"
       ui-sref="album({'id': album.id})"
       style="background-image: url('{{album.image}}');">
-      <h2 class="tile-title full">
-        <span>
-          <div>
-            <i class="fa fa-square-o"></i>&nbsp;<small>{{album.name}}</small>
-          </div>
-        </span>
+      <h2 class="tile-title row-wrap">
+        <div class="details">
+          <i class="fa fa-square-o fa-3x"></i>
+          <small>{{album.name}}</small>
+        </div>
       </h2>
     </a>
   </div>

@@ -3,34 +3,32 @@
   <div
     class="tile tile-blue"
     style="background-image: url('{{album.info.image}}');">
-    <h2 class="tile-title full">
-      <span>
+    <h2 class="tile-title row-wrap">
+      <div class="details">
         {{album.info.name}}
-        <div class="details" ng-click="$root.loadPlaylist(album.tracks)">
-          <i class="fa fa-list"></i> <small>Load album</small>
-        </div>
-        <div class="details" ng-click="$root.appendList(album.tracks)">
-          <i class="fa fa-plus"></i> <small>Append to playlist</small>
-        </div>
-      </span>
+      </div>
+      <div class="details" ng-click="$root.loadPlaylist(album.tracks)">
+        <i class="fa fa-list"></i> <small>Load album</small>
+      </div>
+      <div class="details" ng-click="$root.appendList(album.tracks)">
+        <i class="fa fa-plus"></i> <small>Append to playlist</small>
+      </div>
     </h2>
   </div>
   <div
-    class="tile tile-red relative"
+    class="tile tile-red"
     ng-repeat="(i,track) in album.tracks track by i"
     style="background-color: {{album.colors[i % album.colors.length]}};">
     <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
       <i class="fa fa-plus"></i>
     </button>
-    <a class="tile-title full" ui-sref="player({'trackId': track.id})">
-      <span>
-        <div class="details">
-          <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
-        </div>
-        <div class="details">
-          <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
-        </div>
-      </span>
+    <a class="tile-title row-wrap" ui-sref="player({'trackId': track.id})">
+      <div class="details">
+        <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-clock-o"></i>&nbsp;<small>{{track.duration | trackTime}}</small>
+      </div>
     </a>
   </div>
 </div>
