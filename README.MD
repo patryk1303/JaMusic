@@ -4,7 +4,9 @@ Under development!
 
 ## How to run?
 1. You need to have installed ```node.js```
-2. Install ```gulp``` - ```npm i gulp --gllobal```
+2. Install:
+  * ```gulp``` - ```npm i gulp --global```
+  * ```bower``` - ```npm i bower --global```
 3. Install dependences:
   * ```npm install``
   * ```bower install```
