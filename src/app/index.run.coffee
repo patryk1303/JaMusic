@@ -46,19 +46,21 @@ angular.module 'jaMusic1'
       track = $rootScope.playlist[index]
       $rootScope.trackIndex = index
       $localStorage.trackIndex = index
-      if $rootScope.p
-        $rootScope.p.stop()
-      Tracks.getTrackInfo(track.id)
-        .then((res) ->
-          $rootScope.trackInfo = res.results[0]
-        )
-      Tracks.getTrackFile(track.id)
-        .then((res) ->
-          $rootScope.trackId = track.id
-          $rootScope.p = ngAudio.load(res)
-          $rootScope.p.play()
-          $rootScope.changedTrack = false
-        )
+      
+      if $rootScope.trackId isnt track.id
+        if $rootScope.p
+          $rootScope.p.stop()
+        Tracks.getTrackInfo(track.id)
+          .then((res) ->
+            $rootScope.trackInfo = res.results[0]
+          )
+        Tracks.getTrackFile(track.id)
+          .then((res) ->
+            $rootScope.trackId = track.id
+            $rootScope.p = ngAudio.load(res)
+            $rootScope.p.play()
+            $rootScope.changedTrack = false
+          )
 
     $rootScope.nextTrack = ->
       index = $rootScope.trackIndex + 1
