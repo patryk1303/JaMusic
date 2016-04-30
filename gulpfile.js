@@ -7,6 +7,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var electron = require('gulp-electron');
 var wrench = require('wrench');
 
 /**
@@ -19,6 +20,33 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   require('./gulp/' + file);
 });
 
+
+/**
+ *  Creates application executable
+ */
+ gulp.task('electron', function() {
+	 var packageJson = require('./package.json');
+	 
+	 gulp.src('')
+	 .pipe(electron({
+		 src: './dist',
+		 packageJson: packageJson,
+		 release: './release',
+		 cache: './.tmp/cache',
+		 version: 'v0.37.4',
+		 packaging: true,
+		 platforms: ['win32-ia32'],
+		 platformResources: {
+			 win: {
+				"version-string": packageJson.version,
+                "file-version": packageJson.version,
+                "product-version": packageJson.version,
+                "icon": 'gulp-electron.ico'
+			 }
+		 }
+	 }))
+	 .pipe(gulp.dest(''));
+ });
 
 /**
  *  Default task clean temporaries directories and launch the
