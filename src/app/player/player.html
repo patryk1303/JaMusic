@@ -1,6 +1,6 @@
-<div class="tiles" ng-if="$root.trackInfo">
-  <div class="tile tile-green album" style="background-image: url('{{$root.trackInfo.album_image}}')"></div>
-  <div class="tile tile-red">
+<div class="tiles">
+  <div ng-show="$root.trackInfo" class="tile tile-green album" style="background-image: url('{{$root.trackInfo.album_image}}')"></div>
+  <div ng-show="$root.trackInfo" class="tile tile-red">
     <h2 class="tile-title full">
       <span>
         <a class="details" ui-sref="artist({'id': $root.trackInfo.artist_id})">
@@ -19,16 +19,25 @@
     </h2>
   </div>
 
-  <div class="tile full text-center" ng-if="$root.p" style="justify-content: center;">
+  <!--<div ng-show="$root.trackInfo" class="tile full text-center" ng-if="$root.p" style="justify-content: center;">
     <div loader loading="player.trackLoading"></div>
     <div player></div>
-  </div>
+  </div>-->
 
-  <a class="tile tile-blue full" ng-href="{{$root.trackInfo.audiodownload}}">
+  <a ng-show="$root.trackInfo" class="tile tile-blue full" ng-href="{{$root.trackInfo.audiodownload}}">
     <h2 class="tile-title full">
       <span>
         <i class="fa fa-download fa-5x"></i>
       </span>
     </h2>
   </a>
+  
+  <a ng-hide="$root.trackInfo" class="tile tile-red full">
+    <h2 class="tile-title full">
+      <span>
+        There's no track to play
+      </span>
+    </h2>
+  </a>
+
 </div>

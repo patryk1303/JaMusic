@@ -8,8 +8,8 @@ angular.module 'jaMusic1'
       trackIndex: -1
       favs: []
 
+    $rootScope.trackIndex = -1
     $rootScope.playlist = $localStorage.playlist
-    $rootScope.trackIndex = $localStorage.trackIndex
     $rootScope.favs = $localStorage.favs
     $rootScope.changedTrack = false
 
