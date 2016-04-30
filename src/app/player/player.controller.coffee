@@ -8,6 +8,7 @@ angular.module 'jaMusic1'
       if $rootScope.p
         $rootScope.p.stop()
       $rootScope.trackId = vm.trackId
+      $rootScope.trackIndex = -1
 
       vm.trackLoading = true
 
