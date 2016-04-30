@@ -45,24 +45,6 @@
       {{fav.name}}
     </span>
   </nav>
-  <nav class="nav-group" ng-if="$root.p">
-    <h5 class="nav-group-title">Now playing</h5>
-    <a class="nav-group-item" ui-sref="artist({'id': $root.trackInfo.artist_id})">
-      <i class="fa fa-user"></i>&nbsp;<small>{{$root.trackInfo.artist_name}}</small>
-    </a>
-    <a class="nav-group-item" ui-sref="album({'id': $root.trackInfo.album_id})">
-      <i class="fa fa-stop-circle"></i>&nbsp;<small>{{$root.trackInfo.album_name}}</small>
-    </a>
-    <div class="nav-group-item">
-      <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
-    </div>
-    <div class="nav-group-item">
-      <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
-    </div>
-    <span class="nav-group-item">
-      <player class="small"></player>
-    </span>
-  </nav>
   <nav class="nav-group" ng-if="$root.playlist.length">
     <h5 class="nav-group-title">Playlist</h5>
     <span

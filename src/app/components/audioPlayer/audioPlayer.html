@@ -6,10 +6,10 @@
     <i class="fa fa-stop"></i>
   </button>
 
-  <button class="btn btn-primary" ng-if="$root.playlist.length" ng-click="$root.previousTrack()">
+  <button class="btn btn-primary" ng-show="$root.playlist.length" ng-click="$root.previousTrack()">
     <i class="fa fa-backward"></i>
   </button>
-  <button class="btn btn-primary" ng-if="$root.playlist.length" ng-click="$root.nextTrack()">
+  <button class="btn btn-primary" ng-show="$root.playlist.length" ng-click="$root.nextTrack()">
     <i class="fa fa-forward"></i>
   </button>
 
