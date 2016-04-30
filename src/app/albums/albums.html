@@ -1,9 +1,9 @@
 <div style="width: 100%">
   <div class="search">
-    <div class="form-group">
+    <form class="form-group" ng-submit="albums.searchAlbums()">
       <input class="form-control" placeholder="Album name" ng-model="albums.name">
-      <button class="btn btn-default" ng-click="albums.searchAlbums()">Search albums</button>
-    </div>
+      <button class="btn btn-default">Search albums</button>
+    </form>
   </div>
   <div class="tiles">
     <div loader loading="albums.loading"></div>
