@@ -15,7 +15,7 @@ angular.module 'jaMusic1'
     getTrackInfo = (id = 1204669) ->
       cache = storage["track_#{id}"]
 
-      if cache
+      if cache and cache.results.length
         defer = $q.defer()
         defer.resolve cache
         return defer.promise

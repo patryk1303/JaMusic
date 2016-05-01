@@ -1,0 +1,39 @@
+<div class="tiles">
+  <div loader loading="track.loading"></div>
+  <div ng-show="track.trackInfo" class="tile tile-green album" style="background-image: url('{{track.trackInfo.album_image}}')"></div>
+  <div ng-show="track.trackInfo" class="tile tile-red">
+    <h2 class="tile-title row-wrap">
+      <a class="details" ui-sref="artist({'id': track.trackInfo.artist_id})">
+        <i class="fa fa-user"></i> 
+        <small>{{track.trackInfo.artist_name}}</small>
+      </a>
+      <a class="details" ui-sref="album({'id': track.trackInfo.album_id})">
+        <i class="fa fa-stop-circle"></i> 
+        <small>{{track.trackInfo.album_name}}</small>
+      </a>
+      <div class="details">
+        <i class="fa fa-calendar-o"></i> 
+        <small>{{track.trackInfo.releasedate}}</small>
+      </div>
+      <div class="details">
+        <i class="fa fa-play-circle"></i> 
+        <small>{{track.trackInfo.name}}</small>
+      </div>
+      <a ng-href="{{track.trackInfo.audiodownload}}" class="details">
+        <i class="fa fa-download"></i>
+        <small>Download track</small>
+      </a>
+      <div class="details" ng-click="$root.addToPlaylist(track.trackInfo)">
+        <i class="fa fa-list"></i> 
+        <small>Add to playlist</small>
+      </div>
+    </h2>
+  </div>
+  <div ng-show="track.trackInfo" class="tile tile-blue full">
+    <div class="tile-title">
+      <button class="btn btn-default" ng-click="track.playTrack()">
+        <i class="fa fa-play fa-5x"></i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -11,9 +11,9 @@
       <div class="details">
         <i class="fa fa-calendar-o"></i>&nbsp;<small>{{$root.trackInfo.releasedate}}</small>
       </div>
-      <div class="details">
+      <a class="details" ui-sref="track({'trackId': $root.trackInfo.id})">
         <i class="fa fa-play-circle"></i>&nbsp;<small>{{$root.trackInfo.name}}</small>
-      </div>
+      </a>
     </h2>
   </div>
 

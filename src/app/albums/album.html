@@ -25,7 +25,7 @@
     <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
       <i class="fa fa-plus"></i>
     </button>
-    <a class="tile-title row-wrap" ui-sref="player({'trackId': track.id})">
+    <a class="tile-title row-wrap" ui-sref="track({'trackId': track.id})">
       <div class="details">
         <i class="fa fa-music"></i>&nbsp;<small>{{track.name}}</small>
       </div>

@@ -14,7 +14,7 @@
       <button class="btn btn-default add-to-playlist" ng-click="$root.addToPlaylist(track)">
         <i class="fa fa-plus"></i>
       </button>
-      <a class="tile-title full" ui-sref="player({'trackId': track.id})">
+      <a class="tile-title full" ui-sref="track({'trackId': track.id})">
         <span>
           <div>
             {{track.name}}
