@@ -31,7 +31,15 @@ angular.module 'jaMusic1'
 
     $rootScope.removeFromPlaylist = (e, index) ->
       e.stopPropagation()
-      $rootScope.playlist.splice(index,1)
+      if index < $rootScope.trackIndex
+        $rootScope.trackIndex--
+        $rootScope.playlist.splice(index,1)
+      else if index is $rootScope.trackIndex
+        $rootScope.trackIndex--
+        $rootScope.playlist.splice(index,1)
+        $rootScope.nextTrack()
+      else
+        $rootScope.playlist.splice(index,1)
       return
 
     $rootScope.savePlaylist = ->
