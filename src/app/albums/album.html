@@ -13,6 +13,9 @@
       <div class="details" ng-click="$root.appendList(album.tracks)">
         <i class="fa fa-plus"></i> <small>Append to playlist</small>
       </div>
+      <a ng-href="{{album.downloadLink}}" class="details">
+        <i class="fa fa-download"></i> <small>Download album</small>
+      </a>
     </h2>
   </div>
   <div
