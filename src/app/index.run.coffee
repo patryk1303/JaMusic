@@ -54,7 +54,7 @@ angular.module 'jaMusic1'
       track = $rootScope.playlist[index]
       $rootScope.trackIndex = index
       $localStorage.trackIndex = index
-      
+
       if $rootScope.trackId isnt track.id
         if $rootScope.p
           $rootScope.p.stop()
@@ -83,7 +83,8 @@ angular.module 'jaMusic1'
       $rootScope.changeTrack index
 
     $rootScope.$watch('p.progress', (a,b) ->
-      if $rootScope.p.progress is 1 and
+      if $rootScope.p and
+      $rootScope.p.progress is 1 and
       $rootScope.p.duration > 0 and
       $rootScope.playlist.length and
       not $rootScope.changedTrack
