@@ -7,6 +7,15 @@ angular.module 'jaMusic1'
     vm.colors = Common.getColors()
     vm.downloadLink = "#{env.url}#{env.version}/albums/file/?client_id=#{env.clientId}&id=#{vm.id}"
 
+    vm.downloadAsPlaylist = ->
+      playlist = angular.toJson(vm.tracks)
+      data = "text/json;charset=utf-8,#{playlist}"
+      fileName = vm.info.name.replace /[ ]/g, '_'
+      a = document.createElement 'a'
+      a.href = "data:#{data}"
+      a.download = "#{fileName}.json"
+      a.click()
+
     Albums.getAlbumTracks(vm.id)
       .then((res) ->
         if res.results.length

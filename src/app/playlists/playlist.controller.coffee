@@ -6,6 +6,15 @@ angular.module 'jaMusic1'
 
     vm.colors = Common.getColors()
 
+    vm.download = ->
+      playlist = angular.toJson(vm.tracks.tracks)
+      data = "text/json;charset=utf-8,#{playlist}"
+      fileName = vm.tracks.name.replace /[ ]/g, '_'
+      a = document.createElement 'a'
+      a.href = "data:#{data}"
+      a.download = "#{fileName}.json"
+      a.click()
+
     Playlists.getPlaylist(vm.id)
       .then((res) ->
         vm.tracks = res.results
