@@ -50,6 +50,33 @@ angular.module 'jaMusic1'
       a.download = "playlist.json"
       a.click()
 
+    $rootScope.loadPlaylistFile = ->
+      playlist = []
+      reader = new FileReader()
+      input = document.createElement 'input'
+      input.setAttribute 'type', 'file'
+      input.setAttribute 'accept', '.json'
+      input.click()
+
+      reader.addEventListener 'load', (e) ->
+        string = e.target.result
+        try
+          obj = angular.fromJson string
+          for el in obj
+            hasName = el.hasOwnProperty 'name'
+            hasId = el.hasOwnProperty 'id'
+            if hasName and hasId
+              playlist.push el
+          $rootScope.loadPlaylist playlist
+        catch
+          alert "Opened file isn't proper playlist file"
+
+      input.addEventListener 'change', ->
+        file = input.files[0]
+        reader.readAsText file
+
+      return
+
     $rootScope.changeTrack = (index) ->
       track = $rootScope.playlist[index]
       $rootScope.trackIndex = index
