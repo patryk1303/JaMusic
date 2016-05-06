@@ -1,7 +1,15 @@
 angular.module 'jaMusic1'
-  .directive 'breadcrumbs', () ->
+  .directive 'breadcrumbs', ($state, Breadcrumbs) ->
     link = (scope, el, attr, controller) ->
-      console.log scope
+      scope.getStateName = (breadcrumb, index) ->
+        obj = {}
+
+        if breadcrumb.idName and breadcrumb.id
+          obj[breadcrumb.idName] = breadcrumb.id
+
+        Breadcrumbs.cutBreadcrumbsFromIndex index
+
+        $state.go breadcrumb.state, obj
       return
 
     directive =

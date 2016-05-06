@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams) ->
+  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams, Breadcrumbs) ->
     vm = @
     vm.trackId = parseInt $stateParams.trackId || -1
     vm.trackLoading = false
@@ -26,7 +26,16 @@ angular.module 'jaMusic1'
           .finally(->
             vm.trackLoading = false
           )
-      
+
+
+    breadcrumb =
+      name: 'Player'
+      state: 'player'
+      idName: 'trackId'
+      id: vm.trackId
+    Breadcrumbs.pushBreadcrumb(breadcrumb)
+    $rootScope.breadcrumbs = Breadcrumbs.getBreadcrumbs()
+
     # Tracks.getTrackReviews(vm.trackId)
     #   .then((res) ->
     #     vm.reviews = res.results

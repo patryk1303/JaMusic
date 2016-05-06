@@ -44,13 +44,6 @@ angular.module 'jaMusic1'
         templateUrl: 'app/player/player.html'
         controller: 'PlayerController'
         controllerAs: 'player'
-        onEnter: (Breadcrumbs, $rootScope) ->
-          # Breadcrumbs.resetBreadcrumbs()
-          breadcrumb =
-            name: 'Player'
-            state: 'player'
-          Breadcrumbs.pushBreadcrumb(breadcrumb)
-          $rootScope.breadcrumbs = Breadcrumbs.getBreadcrumbs()
       .state 'artists',
         url: '/artists'
         templateUrl: 'app/artists/artists.html'

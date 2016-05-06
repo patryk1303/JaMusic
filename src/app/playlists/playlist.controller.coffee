@@ -26,6 +26,8 @@ angular.module 'jaMusic1'
           breadcrumb =
             name: vm.tracks.name
             state: 'playlist'
+            idName: 'id'
+            id: vm.id
           Breadcrumbs.pushBreadcrumb(breadcrumb)
           $rootScope.breadcrumbs = Breadcrumbs.getBreadcrumbs()
       )

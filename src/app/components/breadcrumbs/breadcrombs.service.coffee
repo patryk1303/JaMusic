@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .factory 'Breadcrumbs', () ->
+  .factory 'Breadcrumbs', ($rootScope) ->
 
     breadcrumbs = [
       {
@@ -25,10 +25,15 @@ angular.module 'jaMusic1'
     popBreadcrumb = ->
       breadcrumbs.pop()
 
+    cutBreadcrumbsFromIndex = (index) ->
+      breadcrumbs.splice index, breadcrumbs.length
+      $rootScope.breadcrumbs = breadcrumbs
+
     factory =
       resetBreadcrumbs: resetBreadcrumbs
       getBreadcrumbs: getBreadcrumbs
       pushBreadcrumb: pushBreadcrumb
       popBreadcrumb: popBreadcrumb
+      cutBreadcrumbsFromIndex: cutBreadcrumbsFromIndex
 
     factory
