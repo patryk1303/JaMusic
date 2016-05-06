@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .run ($log, $rootScope, Tracks, ngAudio, $localStorage) ->
+  .run ($log, $rootScope, Tracks, ngAudio, $localStorage, $state, Breadcrumbs) ->
     'ngInject'
     $log.debug 'runBlock end'
 
@@ -12,6 +12,8 @@ angular.module 'jaMusic1'
     $rootScope.playlist = $localStorage.playlist
     $rootScope.favs = $localStorage.favs
     $rootScope.changedTrack = false
+
+    Breadcrumbs.resetBreadcrumbs()
 
     $rootScope.loadPlaylist = (list) ->
       tracks = angular.copy list

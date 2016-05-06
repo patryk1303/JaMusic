@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .controller 'AlbumController', (Common, Albums, $stateParams, $rootScope, env) ->
+  .controller 'AlbumController', (Common, Albums, $stateParams, $rootScope, env, Breadcrumbs) ->
     vm = @
     vm.loading = true
     vm.id = $stateParams.id
@@ -21,6 +21,11 @@ angular.module 'jaMusic1'
         if res.results.length
           vm.info = res.results[0]
           vm.tracks = vm.info.tracks
+          breadcrumb =
+            name: vm.info.name
+            state: 'album'
+          Breadcrumbs.pushBreadcrumb(breadcrumb)
+          $rootScope.breadcrumbs = Breadcrumbs.getBreadcrumbs()
       )
       .finally(->
         vm.loading = false

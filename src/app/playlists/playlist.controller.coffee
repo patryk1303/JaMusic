@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .controller 'PlaylistController', (Playlists, Common, $stateParams, $state, $rootScope) ->
+  .controller 'PlaylistController', (Playlists, Common, $stateParams, $state, $rootScope, Breadcrumbs) ->
     vm = @
     vm.loading = true
     vm.id = $stateParams.id
@@ -23,6 +23,11 @@ angular.module 'jaMusic1'
           $state.go 'playlists'
         else
           vm.tracks = vm.tracks[0]
+          breadcrumb =
+            name: vm.tracks.name
+            state: 'playlist'
+          Breadcrumbs.pushBreadcrumb(breadcrumb)
+          $rootScope.breadcrumbs = Breadcrumbs.getBreadcrumbs()
       )
       .finally(->
         vm.loading = false
