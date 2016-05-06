@@ -10,6 +10,7 @@ angular.module 'jaMusic1'
       .catch(Common.getError)
 
     getArtistTracks = (id) ->
+      now = new Date().getTime()
       cache = storage["artist_tracks_#{id}"]
 
       # 86400000 ms = 24 h
@@ -31,6 +32,7 @@ angular.module 'jaMusic1'
       .catch(Common.getError)
 
     getArtistAlbums = (id) ->
+      now = new Date().getTime()
       cache = storage["artist_albums_#{id}"]
 
       # 86400000 ms = 24 h
