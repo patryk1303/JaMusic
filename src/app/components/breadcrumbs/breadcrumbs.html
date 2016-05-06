@@ -1,6 +1,6 @@
 <ul class="breadcrumbs">
   <li ng-repeat="breadcrumb in breadcrumbs track by $index">
-    <a ng-click="getStateName(breadcrumb, $index)">
+    <a ng-click="getStateName(breadcrumb, $index, $last)">
       {{breadcrumb.name}}
     </a>
   </li>
