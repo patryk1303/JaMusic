@@ -1,45 +1,41 @@
 angular.module 'jaMusic1'
-  .directive 'player', ($rootScope) ->
+  .directive 'player', ($rootScope, AudioPlayer) ->
     link = (scope, el, attr, controller) ->
 
-      scope.playPause = () ->
-        if $rootScope.p.audio.paused
-          $rootScope.p.play()
-        else
-          $rootScope.p.pause()
+      scope.playPause = AudioPlayer.playPause
+      scope.stop = AudioPlayer.stop
+      scope.isPaused = AudioPlayer.isPaused
+      scope.progress = AudioPlayer.getProgress()
+      scope.duration = AudioPlayer.getDuration()
+      scope.currentTime = AudioPlayer.getCurrentTime()
+      scope.volume = AudioPlayer.getVolume()
 
-      scope.changeProgress = (e) ->
-        elWidth = el[0].querySelector('.track-progress').getBoundingClientRect().width
-        if e.buttons is 1
-          progress = e.offsetX / elWidth
-          $rootScope.p.progress = progress
-
-      scope.changeVolume = (e) ->
-        elWidth = el[0].querySelector('.volume').getBoundingClientRect().width
-        if e.buttons is 1
-          volume = e.offsetX / elWidth
-          volume = 0 if volume < 0
-          $rootScope.p.volume = volume
-
-      scope.stop = () ->
-        $rootScope.p.pause()
-        $rootScope.p.currentTime = 0
-
-      $rootScope.$watch('p.progress', ->
-        if $rootScope.p
-          elProgress = el[0].querySelector '.audio-progress'
-          progress = $rootScope.p.progress * 100
-
-          if elProgress
-            elProgress.style.width = "#{progress}%"
+      scope.$watch('progress', (a) ->
+        AudioPlayer.setProgress(a)
       )
 
-      $rootScope.$watch('p.volume', ->
-        elVolume = el[0].querySelector '.volume-bar'
-        volume = $rootScope.p.volume * 100
+      scope.$watch('volume', (a) ->
+        AudioPlayer.setVolume(a)
+      )
 
-        if elVolume
-          elVolume.style.width = "#{volume}%"
+      scope.$watch(
+        () -> AudioPlayer.getProgress(),
+        () -> scope.progress = AudioPlayer.getProgress()
+      )
+
+      scope.$watch(
+        () -> AudioPlayer.getDuration(),
+        () -> scope.duration = AudioPlayer.getDuration()
+      )
+
+      scope.$watch(
+        () -> AudioPlayer.getCurrentTime(),
+        () -> scope.currentTime = AudioPlayer.getCurrentTime()
+      )
+
+      scope.$watch(
+        () -> AudioPlayer.getVolume(),
+        () -> scope.currentTime = AudioPlayer.getVolume()
       )
 
       return

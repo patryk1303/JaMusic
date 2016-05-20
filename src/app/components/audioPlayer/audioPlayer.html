@@ -1,6 +1,6 @@
 <div class="audio-player">
   <button ng-click="playPause()" class="btn btn-primary">
-    <i class="fa" ng-class="{'fa-play': $root.p.audio.paused, 'fa-pause': !$root.p.audio.paused}"></i>
+    <i class="fa" ng-class="{'fa-play': isPaused(), 'fa-pause': !isPaused()}"></i>
   </button>
   <button ng-click="stop()" class="btn btn-primary">
     <i class="fa fa-stop"></i>
@@ -12,14 +12,14 @@
   <button class="btn btn-primary" ng-show="$root.playlist.length" ng-click="$root.nextTrack()">
     <i class="fa fa-forward"></i>
   </button>
-  
-  <input class="range-progress" type="range" min="0" max="1" step="0.01" ng-model="$root.p.progress">
+
+  <input class="range-progress" type="range" min="0" max="1" step="0.01" ng-model="progress">
 
   <span class="progress">
-    <span>{{$root.p.currentTime | trackTime}}</span> <br>
-    <span>{{$root.p.audio.duration | trackTime}}</span>
+    <span>{{currentTime | trackTime}}</span> <br>
+    <span>{{duration | trackTime}}</span>
   </span>
 
-  <input class="range-volume" type="range" min="0" max="1" step="0.01" ng-model="$root.p.volume">
+  <input class="range-volume" type="range" min="0" max="1" step="0.01" ng-model="volume">
 
 </div>
