@@ -63,12 +63,13 @@ angular.module 'jaMusic1'
         p.currentTime = 0
 
     loadTrack = (url) ->
-      volume = $localStorage.volume
-      if isAudio()
-        stop()
-      p = ngAudio.load(url)
-      p.volume = volume if volume
-      p.play()
+      if url
+        volume = $localStorage.volume
+        if isAudio()
+          stop()
+        p = ngAudio.load(url)
+        p.volume = volume if volume
+        p.play()
 
     factory =
       # getters
