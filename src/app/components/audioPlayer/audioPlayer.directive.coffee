@@ -10,11 +10,6 @@ angular.module 'jaMusic1'
       scope.currentTime = AudioPlayer.getCurrentTime()
       scope.volume = AudioPlayer.getVolume()
 
-      elProgress = el[0].querySelector '.range-progress'
-      elProgressBar = elProgress.querySelector '.progress-bar'
-      elVolume = el[0].querySelector '.range-volume'
-      elVolumeBar = elVolume.querySelector '.progress-bar'
-
       scope.$watch('progress', (a) ->
         AudioPlayer.setProgress(a)
       )
@@ -25,10 +20,7 @@ angular.module 'jaMusic1'
 
       scope.$watch(
         () -> AudioPlayer.getProgress(),
-        () ->
-          progress = AudioPlayer.getProgress()
-          elProgressBar.style.width = "#{Math.ceil(progress * 100)}%"
-          scope.progress = progress
+        () -> scope.progress = AudioPlayer.getProgress()
       )
 
       scope.$watch(
@@ -43,27 +35,8 @@ angular.module 'jaMusic1'
 
       scope.$watch(
         () -> AudioPlayer.getVolume(),
-        () ->
-          volume = AudioPlayer.getVolume()
-          elVolumeBar.style.width = "#{Math.round(volume * 100)}%"
-          scope.volume = volume
+        () -> scope.volume = AudioPlayer.getVolume()
       )
-
-      changeProgress = (e) ->
-        if e.buttons is 1 or e.type is 'click'
-          perc = e.offsetX / elProgress.getBoundingClientRect().width
-          scope.progress = perc
-
-      changeVolume = (e) ->
-        if e.buttons is 1 or e.type is 'click'
-          perc = e.offsetX / elVolume.getBoundingClientRect().width
-          scope.volume = perc
-
-      elProgress.addEventListener 'mousemove', changeProgress
-      elProgress.addEventListener 'click', changeProgress
-
-      elVolume.addEventListener 'mousemove', changeVolume
-      elVolume.addEventListener 'click', changeVolume
 
       return
 
