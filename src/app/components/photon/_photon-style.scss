@@ -8,6 +8,8 @@
 }
 
 .btn {
+  border-radius: 0;
+  background-image: none;
   box-shadow: 0 5px 10px grey;
 }
 
@@ -30,5 +32,34 @@
     background-color: $progressBar;
     height: 100%;
     width: 0%;
+  }
+}
+
+// navs
+
+.sidebar {
+  background-color: $sidebarBkg;
+}
+
+.nav-group {
+  .nav-group-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .nav-group-item {
+    transition: all 250ms;
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 0;
+    padding-left: 14px;
+
+    span.fa {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      background-color: $navHoverBkg;
+    }
   }
 }
