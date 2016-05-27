@@ -13,8 +13,17 @@ angular.module 'jaMusic1'
     $rootScope.playlist = $localStorage.playlist
     $rootScope.favs = $localStorage.favs
     $rootScope.changedTrack = false
+    $rootScope.showMenu = false
 
     Breadcrumbs.resetBreadcrumbs()
+
+    $rootScope.toggleMenu = () ->
+      $rootScope.showMenu = !$rootScope.showMenu
+      return
+
+    $rootScope.closeMenu = () ->
+      $rootScope.showMenu = false
+      return
 
     $rootScope.loadPlaylist = (list) ->
       tracks = angular.copy list

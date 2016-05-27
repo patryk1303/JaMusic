@@ -7,6 +7,22 @@
   background-color: $toolbarBkg;
 }
 
+.toolbar-header {
+  box-shadow: 0 10px 10px black;
+}
+
+.btn-toolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 100% !important;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // Buttons
 
 .btn {
@@ -52,6 +68,16 @@
 
 .sidebar {
   background-color: $sidebarBkg;
+  position: absolute;
+  z-index: 11;
+  overflow: auto;
+  max-height: 100%;
+  transition: left 250ms;
+  left: -250px;
+
+  &.opened {
+    left: 0;
+  }
 }
 
 .nav-group {
