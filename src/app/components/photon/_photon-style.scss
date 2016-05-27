@@ -1,0 +1,34 @@
+@import '_photon-vars';
+
+.toolbar, .search {
+  box-shadow: none;
+  color: $toolbarColor;
+  background-image: none;
+  background-color: $toolbarBkg;
+}
+
+.btn {
+  box-shadow: 0 5px 10px grey;
+}
+
+.btn-primary {
+  background-image: none;
+  background-color: $btnPrimary;
+
+  &:active {
+    background-image: none;
+    background-color: darken($btnPrimary, 10%);
+  }
+}
+
+.progress-range {
+  height: 30px;
+  width: 200px;
+  background-color: $progressBkg;
+
+  .progress-bar {
+    background-color: $progressBar;
+    height: 100%;
+    width: 0%;
+  }
+}

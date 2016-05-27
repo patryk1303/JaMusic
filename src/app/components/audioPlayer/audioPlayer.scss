@@ -10,18 +10,18 @@
     margin-left: 2px;
     margin-right: 2px;
   }
-  
+
   // Input range start
-  
+
   input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
-  
+
     &.range-volume {
       width: 100px;
     }
-  
+
     &:focus {
       outline: none;
     }
@@ -105,7 +105,7 @@
       background: #FFFFFF;
     }
   }
-  
+
   // Input range end
 
   .track-progress {
@@ -148,19 +148,19 @@
       transform: translateY(-50%);
     }
   }
-  
+
   &.toolbar {
     justify-content: center;
     button {
       height: 30px;
       width: 30px;
     }
-    
+
     .track-progress {
       height: 30px;
       order: 6;
     }
-    
+
     .progress {
       order: 7;
       span:first-child::after {
@@ -170,16 +170,17 @@
         display: none;
       }
     }
-    
+
     .range-progress {
       order: 6;
+      flex-grow: 1;
     }
-    
+
     .range-volume {
       order: 5;
       margin-right: 3px;
     }
-    
+
     .volume {
       order: 5;
       margin-right: 3px;

@@ -7,22 +7,23 @@
 
     &:nth-child(n+2){
       &::before {
-        content: "/ ";
+        color: tomato;
+        content: " > ";
       }
     }
 
     a {
       padding: 5px;
-      color: darken(#333, 50%);
+      color: lighten(#ecf0f1, 50%);
       text-decoration: none;
       cursor: pointer;
 
       &:hover {
-        color: #333;
+        color: #ecf0f1;
       }
 
       &.active {
-        color: #333;
+        color: #ecf0f1;
       }
     }
   }
