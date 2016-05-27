@@ -7,10 +7,34 @@
   background-color: $toolbarBkg;
 }
 
+// Buttons
+
 .btn {
   border-radius: 0;
   background-image: none;
   box-shadow: 0 5px 10px grey;
+}
+
+.btn.add-to-playlist {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 32px !important;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 100%;
+  background-color: $btnPrimary;
+  box-shadow: none;
+  border: none;
+  color: white;
+
+  &:active {
+    background-image: none;
+    background-color: darken($btnPrimary, 10%);
+  }
 }
 
 .btn-primary {
@@ -21,18 +45,7 @@
     background-image: none;
     background-color: darken($btnPrimary, 10%);
   }
-}
 
-.progress-range {
-  height: 30px;
-  width: 200px;
-  background-color: $progressBkg;
-
-  .progress-bar {
-    background-color: $progressBar;
-    height: 100%;
-    width: 0%;
-  }
 }
 
 // navs
