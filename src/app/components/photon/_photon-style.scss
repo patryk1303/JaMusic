@@ -63,3 +63,35 @@
     }
   }
 }
+
+
+// NOUiSlider
+.noUi-target {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.noUi-background {
+  background: $progressBar;
+}
+
+.noUi-origin {
+  border-radius: 0;
+  background: $progressBkg;
+}
+
+.noUi-handle {
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.noUi-horizontal {
+  .noUi-handle {
+    &::before, &::after {
+      display: none;
+    }
+  }
+}
