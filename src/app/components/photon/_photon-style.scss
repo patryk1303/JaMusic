@@ -1,0 +1,151 @@
+@import '_photon-vars';
+
+input {
+  color: black;
+}
+
+.toolbar, .search {
+  box-shadow: none;
+  color: $toolbarColor;
+  background-image: none;
+  background-color: $toolbarBkg;
+}
+
+.toolbar-header {
+  box-shadow: 0 10px 10px black;
+}
+
+.toolbar-footer {
+  position: relative;
+}
+
+.btn-toolbar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 100% !important;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .fa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// Buttons
+
+.btn {
+  border-radius: 0;
+  background-image: none;
+  box-shadow: 0 5px 10px grey;
+}
+
+.btn.add-to-playlist {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 32px !important;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 100%;
+  background-color: $btnPrimary;
+  box-shadow: none;
+  border: none;
+  color: white;
+
+  &:active {
+    background-image: none;
+    background-color: darken($btnPrimary, 10%);
+  }
+}
+
+.btn-primary {
+  background-image: none;
+  background-color: $btnPrimary;
+
+  &:active {
+    background-image: none;
+    background-color: darken($btnPrimary, 10%);
+  }
+
+}
+
+// navs
+
+.sidebar {
+  background-color: $sidebarBkg;
+  position: absolute;
+  z-index: 11;
+  overflow: auto;
+  max-height: 100%;
+  height: 100%;
+  transition: left 250ms;
+  left: -250px;
+
+  &.opened {
+    left: 0;
+  }
+}
+
+.nav-group {
+  .nav-group-title {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .nav-group-item {
+    transition: all 250ms;
+    font-weight: 500;
+    font-size: 14px;
+    padding-right: 0;
+    padding-left: 14px;
+
+    span.fa {
+      margin-right: 16px;
+    }
+
+    &:hover {
+      background-color: $navHoverBkg;
+    }
+  }
+}
+
+
+// NOUiSlider
+.noUi-target {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.noUi-background {
+  background: $progressBar;
+}
+
+.noUi-origin {
+  border-radius: 0;
+  background: $progressBkg;
+}
+
+.noUi-handle {
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.noUi-horizontal {
+  .noUi-handle {
+    &::before, &::after {
+      display: none;
+    }
+  }
+}

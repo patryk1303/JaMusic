@@ -26,19 +26,24 @@
 
     <div class="window">
       <header class="toolbar toolbar-header">
+        <button class="btn btn-primary btn-toolbar" ng-click="$root.toggleMenu()">
+          <i class="fa" ng-class="{'fa-times': $root.showMenu, 'fa-bars': !$root.showMenu}"></i>
+        </button>
         <div breadcrumbs crumbs="$root.breadcrumbs"></div>
       </header>
       <div class="window-content">
         <div class="pane-group">
-          <div class="pane pane-sm sidebar">
+          <div class="pane pane-sm sidebar" ng-class="{'opened': $root.showMenu}">
             <navbar state="$root.state"></navbar>
           </div>
-          <div class="pane flex">
+          <div class="pane flex" ng-click="$root.closeMenu()">
             <main class="content-center" ui-view></main>
           </div>
         </div>
       </div>
-      <footer class="toolbar toolbar-footer" ng-if="$root.p">
+      <!--<footer class="toolbar toolbar-footer" ng-if="$root.p">-->
+      <footer class="toolbar toolbar-footer" ng-show="$root.trackInfo">
+        <div loader class="small" loading="$root.audioLoading"></div>
         <div class="toolbar-actions">
           <div class="flex-center text-center">
             <span ui-sref="artist({'id': $root.trackInfo.artist_id})">

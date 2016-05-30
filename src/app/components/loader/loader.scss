@@ -24,6 +24,11 @@
   }
 }
 
+.small .loader .spinner {
+  width: 48px;
+  height: 48px;
+}
+
 @keyframes loader {
   0% { transform: rotateZ(0deg) }
   100% { transform: rotateZ(360deg) }

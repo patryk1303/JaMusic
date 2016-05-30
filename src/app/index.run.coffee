@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .run ($log, $rootScope, Tracks, ngAudio, $localStorage, $state, Breadcrumbs) ->
+  .run ($log, $rootScope, Tracks, ngAudio, $localStorage, $state, Breadcrumbs, AudioPlayer) ->
     'ngInject'
     $log.debug 'runBlock end'
 
@@ -13,8 +13,17 @@ angular.module 'jaMusic1'
     $rootScope.playlist = $localStorage.playlist
     $rootScope.favs = $localStorage.favs
     $rootScope.changedTrack = false
+    $rootScope.showMenu = false
 
     Breadcrumbs.resetBreadcrumbs()
+
+    $rootScope.toggleMenu = () ->
+      $rootScope.showMenu = !$rootScope.showMenu
+      return
+
+    $rootScope.closeMenu = () ->
+      $rootScope.showMenu = false
+      return
 
     $rootScope.loadPlaylist = (list) ->
       tracks = angular.copy list
@@ -81,14 +90,13 @@ angular.module 'jaMusic1'
       return
 
     $rootScope.changeTrack = (index) ->
-      volume = $localStorage.volume
       track = $rootScope.playlist[index]
       $rootScope.trackIndex = index
       $localStorage.trackIndex = index
 
       if $rootScope.trackId isnt track.id
-        if $rootScope.p
-          $rootScope.p.stop()
+        # if AudioPlayer.isAudio()
+        #   AudioPlayer.p.stop()
         Tracks.getTrackInfo(track.id)
           .then((res) ->
             $rootScope.trackInfo = res.results[0]
@@ -96,9 +104,7 @@ angular.module 'jaMusic1'
         Tracks.getTrackFile(track.id)
           .then((res) ->
             $rootScope.trackId = track.id
-            $rootScope.p = ngAudio.load(res)
-            $rootScope.p.volume = volume if volume
-            $rootScope.p.play()
+            AudioPlayer.loadTrack(res)
             $rootScope.changedTrack = false
           )
 
@@ -114,20 +120,26 @@ angular.module 'jaMusic1'
         index = $rootScope.playlist.length - 1
       $rootScope.changeTrack index
 
-    $rootScope.$watch('p.progress', (a,b) ->
-      if $rootScope.p and
-      $rootScope.p.progress is 1 and
-      $rootScope.p.duration > 0 and
-      $rootScope.playlist.length and
-      not $rootScope.changedTrack
-        $rootScope.changedTrack = true
-        $rootScope.p.stop()
-        $rootScope.nextTrack()
+    $rootScope.$watch(
+      () ->
+        AudioPlayer.getProgress()
+      ,
+      (a,b) ->
+        if AudioPlayer.isAudio() and
+        AudioPlayer.getProgress() is 1 and
+        AudioPlayer.getDuration() > 0 and
+        $rootScope.playlist.length and
+        not $rootScope.changedTrack
+          $rootScope.changedTrack = true
+          AudioPlayer.stop()
+          $rootScope.nextTrack()
     )
 
-    $rootScope.$watch('p.volume', (a,b) ->
-      $localStorage.volume = a
-      return
+    $rootScope.audioLoading = false
+
+    $rootScope.$watch(
+      () -> AudioPlayer.volume
+      (a,b) -> $localStorage.volume = a
     )
 
     return

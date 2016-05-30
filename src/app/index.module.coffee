@@ -8,5 +8,6 @@ angular.module 'jaMusic1', [
   'ui.router',
   'toastr',
   'ngAudio',
-  'ngStorage'
+  'ngStorage',
+  'nouislider'
   ]

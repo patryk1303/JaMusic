@@ -1,12 +1,12 @@
 angular.module 'jaMusic1'
-  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams, Breadcrumbs) ->
+  .controller 'PlayerController', (Common, Tracks, $rootScope, $sce, ngAudio, $stateParams, Breadcrumbs, AudioPlayer) ->
     vm = @
     vm.trackId = parseInt $stateParams.trackId || -1
     vm.trackLoading = false
 
     if parseInt($rootScope.trackId) isnt vm.trackId
-      if $rootScope.p
-        $rootScope.p.stop()
+      if AudioPlayer.isAudio()
+        AudioPlayer.stop()
       $rootScope.trackId = vm.trackId
       $rootScope.trackIndex = -1
 
@@ -20,8 +20,7 @@ angular.module 'jaMusic1'
           )
         Tracks.getTrackFile(vm.trackId)
           .then((res) ->
-            $rootScope.p = ngAudio.load(res)
-            $rootScope.p.play()
+            AudioPlayer.loadTrack(res)
           )
           .finally(->
             vm.trackLoading = false
