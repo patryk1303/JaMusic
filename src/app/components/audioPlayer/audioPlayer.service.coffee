@@ -1,5 +1,5 @@
 angular.module 'jaMusic1'
-  .factory 'AudioPlayer', (ngAudio, $rootScope, $localStorage) ->
+  .factory 'AudioPlayer', (ngAudio, $rootScope, $localStorage, $interval) ->
     p = null
 
     # getters
@@ -63,13 +63,22 @@ angular.module 'jaMusic1'
         p.currentTime = 0
 
     loadTrack = (url) ->
+      $rootScope.audioLoading = true
       if url
         volume = $localStorage.volume
         if isAudio()
           stop()
         p = ngAudio.load(url)
         p.volume = volume if volume
-        p.play()
+
+        fn = ->
+          if isAudio() and p.audio.buffered and p.audio.buffered.length is 1
+            $interval.cancel interval
+            $rootScope.audioLoading = false
+            p.play()
+        interval = $interval fn, 1000
+
+        # p.play()
 
     factory =
       # getters

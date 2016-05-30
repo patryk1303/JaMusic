@@ -135,6 +135,8 @@ angular.module 'jaMusic1'
           $rootScope.nextTrack()
     )
 
+    $rootScope.audioLoading = false
+
     $rootScope.$watch(
       () -> AudioPlayer.volume
       (a,b) -> $localStorage.volume = a

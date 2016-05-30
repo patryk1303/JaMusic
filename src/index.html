@@ -43,6 +43,7 @@
       </div>
       <!--<footer class="toolbar toolbar-footer" ng-if="$root.p">-->
       <footer class="toolbar toolbar-footer" ng-show="$root.trackInfo">
+        <div loader class="small" loading="$root.audioLoading"></div>
         <div class="toolbar-actions">
           <div class="flex-center text-center">
             <span ui-sref="artist({'id': $root.trackInfo.artist_id})">
