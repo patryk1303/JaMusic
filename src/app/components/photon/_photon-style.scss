@@ -1,5 +1,9 @@
 @import '_photon-vars';
 
+input {
+  color: black;
+}
+
 .toolbar, .search {
   box-shadow: none;
   color: $toolbarColor;
