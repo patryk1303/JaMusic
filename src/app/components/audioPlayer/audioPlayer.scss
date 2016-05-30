@@ -1,5 +1,4 @@
 .audio-player {
-  // TODO move to directive
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -107,6 +106,26 @@
   }
 
   // Input range end
+
+  .controls {
+    display: flex;
+  }
+
+  .ranges {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    .controls {
+      flex-basis: 100%;
+      justify-content: center;
+    }
+    .ranges {
+      flex-basis: 100%;
+    }
+  }
 
   .track-progress {
     position: relative;

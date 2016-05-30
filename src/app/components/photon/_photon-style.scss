@@ -21,6 +21,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .fa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 // Buttons
@@ -72,6 +78,7 @@
   z-index: 11;
   overflow: auto;
   max-height: 100%;
+  height: 100%;
   transition: left 250ms;
   left: -250px;
 
