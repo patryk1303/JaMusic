@@ -127,6 +127,11 @@
       flex-basis: 100%;
     }
   }
+  @media screen and (max-width: 480px) {
+    .range-volume {
+      display: none;
+    }
+  }
 
   .track-progress {
     position: relative;
